@@ -1,2 +1,3 @@
-# NightGalleryLibrary.github.io
-Finished color windows from Night Garden Library: Myths &amp; Monsters
+# Night Garden Library
+
+Color gallery for Myths & Monsters. Pages from `main` root.
