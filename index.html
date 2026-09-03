@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Night Garden Library — Book One: Myths &amp; Monsters. A nave of eight windows.">
+  <title>Night Garden Library — Myths &amp; Monsters</title>
+  <style>
+    html, body { background: #000; color: #C9A227; margin: 0; }
+    #threshold { background: #000; }
+  </style>
+  <script>
+    (function () {
+      try {
+        if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.documentElement.classList.add("no-motion");
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preload" href="fonts/Cinzel-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="plates/rose-roundel-hero.jpg" as="image">
+  <link rel="stylesheet" href="vendor/lenis.css">
+  <link rel="stylesheet" href="css/nave.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <canvas id="caustics" aria-hidden="true"></canvas>
+  <div class="floor-fallback" aria-hidden="true"></div>
+  <div id="goldCursor" aria-hidden="true" hidden><span class="speck"></span></div>
+
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <clipPath id="lancetClip" clipPathUnits="objectBoundingBox">
+        <path d="M0.5 0.012 C0.5 0.012 0.965 0.30 0.965 0.54 L0.965 0.988 L0.035 0.988 L0.035 0.54 C0.035 0.30 0.5 0.012 0.5 0.012 Z"/>
+      </clipPath>
+      <clipPath id="roseClip" clipPathUnits="objectBoundingBox">
+        <circle cx="0.5" cy="0.5" r="0.5"/>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <div id="threshold" role="status" aria-live="polite">
+    <div class="scribe" aria-hidden="true">
+      <div class="hairline"></div>
+      <svg class="meander" viewBox="0 0 392 12" preserveAspectRatio="none">
+        <path id="meanderPath" d="M0,10 L0,0 L5,0 L5,7 L8,7 L8,0 L11,0 L11,10 M14,10 L14,0 L19,0 L19,7 L22,7 L22,0 L25,0 L25,10 M28,10 L28,0 L33,0 L33,7 L36,7 L36,0 L39,0 L39,10 M42,10 L42,0 L47,0 L47,7 L50,7 L50,0 L53,0 L53,10 M56,10 L56,0 L61,0 L61,7 L64,7 L64,0 L67,0 L67,10 M70,10 L70,0 L75,0 L75,7 L78,7 L78,0 L81,0 L81,10 M84,10 L84,0 L89,0 L89,7 L92,7 L92,0 L95,0 L95,10 M98,10 L98,0 L103,0 L103,7 L106,7 L106,0 L109,0 L109,10 M112,10 L112,0 L117,0 L117,7 L120,7 L120,0 L123,0 L123,10 M126,10 L126,0 L131,0 L131,7 L134,7 L134,0 L137,0 L137,10 M140,10 L140,0 L145,0 L145,7 L148,7 L148,0 L151,0 L151,10 M154,10 L154,0 L159,0 L159,7 L162,7 L162,0 L165,0 L165,10 M168,10 L168,0 L173,0 L173,7 L176,7 L176,0 L179,0 L179,10 M182,10 L182,0 L187,0 L187,7 L190,7 L190,0 L193,0 L193,10 M196,10 L196,0 L201,0 L201,7 L204,7 L204,0 L207,0 L207,10 M210,10 L210,0 L215,0 L215,7 L218,7 L218,0 L221,0 L221,10 M224,10 L224,0 L229,0 L229,7 L232,7 L232,0 L235,0 L235,10 M238,10 L238,0 L243,0 L243,7 L246,7 L246,0 L249,0 L249,10 M252,10 L252,0 L257,0 L257,7 L260,7 L260,0 L263,0 L263,10 M266,10 L266,0 L271,0 L271,7 L274,7 L274,0 L277,0 L277,10 M280,10 L280,0 L285,0 L285,7 L288,7 L288,0 L291,0 L291,10 M294,10 L294,0 L299,0 L299,7 L302,7 L302,0 L305,0 L305,10 M308,10 L308,0 L313,0 L313,7 L316,7 L316,0 L319,0 L319,10 M322,10 L322,0 L327,0 L327,7 L330,7 L330,0 L333,0 L333,10 M336,10 L336,0 L341,0 L341,7 L344,7 L344,0 L347,0 L347,10 M350,10 L350,0 L355,0 L355,7 L358,7 L358,0 L361,0 L361,10 M364,10 L364,0 L369,0 L369,7 L372,7 L372,0 L375,0 L375,10 M378,10 L378,0 L383,0 L383,7 L386,7 L386,0 L389,0 L389,10"/>
+      </svg>
+    </div>
+    <p class="line">The old stories never really left.</p>
+  </div>
+
+  <main id="aisle">
+    <section id="rose" class="bay masonry" data-bay="rose">
+      <div class="wall">
+        <div class="rose-window" id="roseFrame">
+          <div class="rose-halo" aria-hidden="true"></div>
+          <div class="rose-aperture" style="background-image:url('plates/rose-roundel-blur.jpg')">
+            <img src="plates/rose-roundel-hero.jpg" alt="Myths and Monsters rose window: jackal, phoenix, pomegranate, wolf" width="800" height="800">
+          </div>
+          <svg class="rose-cames" viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="came-lead" cx="50" cy="50" r="48.8" fill="none"/>
+            <circle class="came-gold" cx="50" cy="50" r="47.15" fill="none"/>
+            <circle class="came-gold-inner" cx="50" cy="50" r="45.35" fill="none"/>
+          </svg>
+          <div class="sun-speck" id="sunSpeck" hidden></div>
+        </div>
+      </div>
+      <div class="rose-spill" aria-hidden="true"></div>
+      <div class="stone-floor" id="floor" aria-hidden="true"></div>
+      <button type="button" class="tilt-ask" id="tiltAsk" hidden>Tip the glass</button>
+    </section>
+
+    <div class="pier" aria-hidden="true"></div>
+
+    <section class="bay masonry lancet-bay" data-plate="persephone" data-side="north">
+      <article class="lancet" data-plate="persephone" tabindex="0" role="button" aria-label="Persephone, six seeds, and the year divides">
+        <div class="lancet-emit" style="background-image:url('plates/persephone-color-blur.jpg')"></div>
+        <div class="lancet-glass" style="background-image:url('plates/persephone-color-blur.jpg')">
+          <img class="plate plate-color" src="plates/persephone-color-card.jpg" alt="" width="600" height="750" loading="eager">
+          <img class="plate plate-number" src="plates/persephone-number-card.jpg" alt="" width="600" height="750" loading="lazy">
+        </div>
+        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
+          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
+          <path class="came-lead" d="M12 178 L188 178"/>
+          <path class="came-lead" d="M100 8 L100 328"/>
+          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
+          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
+        </svg>
+        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
+        </svg>
+      </article>
+      <header class="lancet-caption">
+        <h2 class="name">Persephone</h2>
+        <p class="epithet">six seeds, and the year divides</p>
+      </header>
+    </section>
+
+    <div class="pier" aria-hidden="true"></div>
+
+    <section class="bay masonry lancet-bay" data-plate="medusa" data-side="south">
+      <article class="lancet" data-plate="medusa" tabindex="0" role="button" aria-label="Medusa, with somewhere to be">
+        <div class="lancet-emit" style="background-image:url('plates/medusa-blur.jpg')"></div>
+        <div class="lancet-glass" style="background-image:url('plates/medusa-blur.jpg')">
+          <img class="plate plate-color" src="plates/medusa-card.jpg" alt="" width="600" height="750" loading="lazy">
+        </div>
+        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
+          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
+          <path class="came-lead" d="M12 178 L188 178"/>
+          <path class="came-lead" d="M100 8 L100 328"/>
+          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
+          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
+        </svg>
+        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
+        </svg>
+      </article>
+      <header class="lancet-caption">
+        <h2 class="name">Medusa</h2>
+        <p class="epithet">with somewhere to be</p>
+      </header>
+    </section>
+
+    <div class="pier" aria-hidden="true"></div>
+
+    <section class="bay masonry lancet-bay" data-plate="fenrir" data-side="north">
+      <article class="lancet" data-plate="fenrir" tabindex="0" role="button" aria-label="Fenrir, a god's hand still in his mouth">
+        <div class="lancet-emit" style="background-image:url('plates/fenrir-blur.jpg')"></div>
+        <div class="lancet-glass" style="background-image:url('plates/fenrir-blur.jpg')">
+          <img class="plate plate-color" src="plates/fenrir-card.jpg" alt="" width="600" height="750" loading="lazy">
+        </div>
+        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
+          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
+          <path class="came-lead" d="M12 178 L188 178"/>
+          <path class="came-lead" d="M100 8 L100 328"/>
+          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
+          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
+        </svg>
+        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
+        </svg>
+      </article>
+      <header class="lancet-caption">
+        <h2 class="name">Fenrir</h2>
+        <p class="epithet">a god's hand still in his mouth</p>
+      </header>
+    </section>
+
+    <div class="pier" aria-hidden="true"></div>
+
+    <section class="bay masonry lancet-bay" data-plate="baba-yaga" data-side="south">
+      <article class="lancet" data-plate="baba-yaga" tabindex="0" role="button" aria-label="Baba Yaga, the house stands on chicken legs">
+        <div class="lancet-emit" style="background-image:url('plates/baba-yaga-blur.jpg')"></div>
+        <div class="lancet-glass" style="background-image:url('plates/baba-yaga-blur.jpg')">
+          <img class="plate plate-color" src="plates/baba-yaga-card.jpg" alt="" width="600" height="750" loading="lazy">
+        </div>
+        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
+          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
+          <path class="came-lead" d="M12 178 L188 178"/>
+          <path class="came-lead" d="M100 8 L100 328"/>
+          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
+          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
+        </svg>
+        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
+        </svg>
+      </article>
+      <header class="lancet-caption">
+        <h2 class="name">Baba Yaga</h2>
+        <p class="epithet">the house stands on chicken legs</p>
+      </header>
+    </section>
+
+    <div class="pier" aria-hidden="true"></div>
+
+    <section class="bay masonry lancet-bay" data-plate="phoenix" data-side="north">
+      <article class="lancet" data-plate="phoenix" tabindex="0" role="button" aria-label="Phoenix, five hundred years, then fire">
+        <div class="lancet-emit" style="background-image:url('plates/phoenix-blur.jpg')"></div>
+        <div class="lancet-glass" style="background-image:url('plates/phoenix-blur.jpg')">
+          <img class="plate plate-color" src="plates/phoenix-card.jpg" alt="" width="600" height="750" loading="lazy">
+        </div>
+        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
+          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
+          <path class="came-lead" d="M12 178 L188 178"/>
+          <path class="came-lead" d="M100 8 L100 328"/>
+          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
+          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
+        </svg>
+        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
+        </svg>
+      </article>
+      <header class="lancet-caption">
+        <h2 class="name">Phoenix</h2>
+        <p class="epithet">five hundred years, then fire</p>
+      </header>
+    </section>
+
+    <div class="pier" aria-hidden="true"></div>
+
+    <section class="bay masonry lancet-bay" data-plate="valkyrie" data-side="south">
+      <article class="lancet" data-plate="valkyrie" tabindex="0" role="button" aria-label="Valkyrie, she names who rides north">
+        <div class="lancet-emit" style="background-image:url('plates/valkyrie-blur.jpg')"></div>
+        <div class="lancet-glass" style="background-image:url('plates/valkyrie-blur.jpg')">
+          <img class="plate plate-color" src="plates/valkyrie-card.jpg" alt="" width="600" height="750" loading="lazy">
+        </div>
+        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
+          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
+          <path class="came-lead" d="M12 178 L188 178"/>
+          <path class="came-lead" d="M100 8 L100 328"/>
+          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
+          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
+        </svg>
+        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
+        </svg>
+      </article>
+      <header class="lancet-caption">
+        <h2 class="name">Valkyrie</h2>
+        <p class="epithet">she names who rides north</p>
+      </header>
+    </section>
+
+    <div class="pier" aria-hidden="true"></div>
+
+    <section class="bay masonry lancet-bay" data-plate="hecate" data-side="north">
+      <article class="lancet" data-plate="hecate" tabindex="0" role="button" aria-label="Hecate, three faces at the joining">
+        <div class="lancet-emit" style="background-image:url('plates/hecate-blur.jpg')"></div>
+        <div class="lancet-glass" style="background-image:url('plates/hecate-blur.jpg')">
+          <img class="plate plate-color" src="plates/hecate-card.jpg" alt="" width="600" height="750" loading="lazy">
+        </div>
+        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
+          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
+          <path class="came-lead" d="M12 178 L188 178"/>
+          <path class="came-lead" d="M100 8 L100 328"/>
+          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
+          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
+        </svg>
+        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
+        </svg>
+      </article>
+      <header class="lancet-caption">
+        <h2 class="name">Hecate</h2>
+        <p class="epithet">three faces at the joining</p>
+      </header>
+    </section>
+
+    <div class="pier" aria-hidden="true"></div>
+
+    <section class="bay masonry lancet-bay" data-plate="circe" data-side="south">
+      <article class="lancet" data-plate="circe" tabindex="0" role="button" aria-label="Circe, the bronze bowl, and the year they stayed">
+        <div class="lancet-emit" style="background-image:url('plates/circe-blur.jpg')"></div>
+        <div class="lancet-glass" style="background-image:url('plates/circe-blur.jpg')">
+          <img class="plate plate-color" src="plates/circe-card.jpg" alt="" width="600" height="750" loading="lazy">
+        </div>
+        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
+          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
+          <path class="came-lead" d="M12 178 L188 178"/>
+          <path class="came-lead" d="M100 8 L100 328"/>
+          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
+          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
+        </svg>
+        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
+        </svg>
+      </article>
+      <header class="lancet-caption">
+        <h2 class="name">Circe</h2>
+        <p class="epithet">the bronze bowl, and the year they stayed</p>
+      </header>
+    </section>
+
+    <div class="pier" aria-hidden="true"></div>
+
+    <section id="how" class="bay masonry">
+      <p class="how-kicker">The work, then the window</p>
+      <div class="triptych">
+        <figure class="leaf">
+          <img src="plates/persephone-number-card.jpg" alt="Persephone, numbered" width="400" height="500" loading="lazy" style="background-image:url('plates/persephone-number-blur.jpg');background-size:cover">
+        </figure>
+        <div class="chips" aria-label="Sixteen named colours">
+          <div class="chip"><div class="swatch" style="--c:#E8B48E"></div><span>Peach</span></div>
+          <div class="chip"><div class="swatch" style="--c:#0B1A3A"></div><span>Midnight</span></div>
+          <div class="chip"><div class="swatch" style="--c:#1A6A6A"></div><span>Teal</span></div>
+          <div class="chip"><div class="swatch" style="--c:#C9A227"></div><span>Gold</span></div>
+          <div class="chip"><div class="swatch" style="--c:#802618"></div><span>Burgundy</span></div>
+          <div class="chip"><div class="swatch" style="--c:#12141A"></div><span>Ink</span></div>
+          <div class="chip"><div class="swatch" style="--c:#D4A017"></div><span>Honey</span></div>
+          <div class="chip"><div class="swatch" style="--c:#8C6239"></div><span>Bronze</span></div>
+          <div class="chip"><div class="swatch" style="--c:#5C6B3A"></div><span>Olive</span></div>
+          <div class="chip"><div class="swatch" style="--c:#4A3224"></div><span>Bark</span></div>
+          <div class="chip"><div class="swatch" style="--c:#B87333"></div><span>Copper</span></div>
+          <div class="chip"><div class="swatch" style="--c:#4A0E18"></div><span>Oxblood</span></div>
+          <div class="chip"><div class="swatch" style="--c:#C41E3A"></div><span>Scarlet</span></div>
+          <div class="chip"><div class="swatch" style="--c:#3C2414"></div><span>Espresso</span></div>
+          <div class="chip"><div class="swatch" style="--c:#C9B48A"></div><span>Sand</span></div>
+          <div class="chip"><div class="swatch" style="--c:#72283F"></div><span>Wine</span></div>
+        </div>
+        <figure class="leaf">
+          <img src="plates/persephone-color-card.jpg" alt="Persephone, finished" width="400" height="500" loading="lazy" style="background-image:url('plates/persephone-color-blur.jpg');background-size:cover">
+        </figure>
+      </div>
+    </section>
+
+    <section id="leave">
+      <div class="end-line" aria-hidden="true"></div>
+      <p class="valediction">Forty windows. The rest live in the book.</p>
+      <p class="author">Pedro Ferreira</p>
+    </section>
+  </main>
+
+  <div id="chapel" role="dialog" aria-modal="true" aria-labelledby="chapelName" data-lenis-prevent hidden>
+    <button type="button" class="chapel-return" id="chapelReturn" aria-label="Return to the nave">
+      <span class="hair" aria-hidden="true"></span>
+      <span>return to the nave</span>
+    </button>
+    <div class="chapel-stage">
+      <div class="chapel-glass">
+        <div class="emit" id="chapelEmit"></div>
+        <div class="frame" aria-hidden="true"></div>
+        <div class="hero" id="chapelHero"></div>
+      </div>
+      <div class="chapel-missal">
+        <h2 class="name" id="chapelName"></h2>
+        <p class="epithet" id="chapelEpithet"></p>
+        <p id="chapelP1"></p>
+        <p id="chapelP2"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="js/sun.js"></script>
+  <script src="js/caustics.js"></script>
+  <script src="js/glass.js"></script>
+  <script src="js/threshold.js"></script>
+  <script src="js/nave.js"></script>
+  <script src="js/chapel.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

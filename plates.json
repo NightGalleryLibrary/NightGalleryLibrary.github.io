@@ -1,0 +1,96 @@
+{
+  "palette": [
+    "Peach",
+    "Midnight",
+    "Teal",
+    "Gold",
+    "Burgundy",
+    "Ink",
+    "Honey",
+    "Bronze",
+    "Olive",
+    "Bark",
+    "Copper",
+    "Oxblood",
+    "Scarlet",
+    "Espresso",
+    "Sand",
+    "Wine"
+  ],
+  "plates": [
+    {
+      "id": "rose",
+      "name": "Night Garden Library",
+      "epithet": "Book One — Myths & Monsters",
+      "color": "plates/rose-roundel-hero.jpg",
+      "card": "plates/rose-roundel-card.jpg",
+      "blur": "plates/rose-roundel-blur.jpg",
+      "roundel": "plates/rose-roundel-hero.jpg"
+    },
+    {
+      "id": "persephone",
+      "name": "Persephone",
+      "epithet": "six seeds, and the year divides",
+      "color": "plates/persephone-color-hero.jpg",
+      "card": "plates/persephone-color-card.jpg",
+      "blur": "plates/persephone-color-blur.jpg",
+      "numbered": "plates/persephone-number-hero.jpg"
+    },
+    {
+      "id": "medusa",
+      "name": "Medusa",
+      "epithet": "with somewhere to be",
+      "color": "plates/medusa-hero.jpg",
+      "card": "plates/medusa-card.jpg",
+      "blur": "plates/medusa-blur.jpg"
+    },
+    {
+      "id": "hecate",
+      "name": "Hecate",
+      "epithet": "three faces at the joining",
+      "color": "plates/hecate-hero.jpg",
+      "card": "plates/hecate-card.jpg",
+      "blur": "plates/hecate-blur.jpg"
+    },
+    {
+      "id": "circe",
+      "name": "Circe",
+      "epithet": "the bronze bowl, and the year they stayed",
+      "color": "plates/circe-hero.jpg",
+      "card": "plates/circe-card.jpg",
+      "blur": "plates/circe-blur.jpg"
+    },
+    {
+      "id": "fenrir",
+      "name": "Fenrir",
+      "epithet": "a god's hand still in his mouth",
+      "color": "plates/fenrir-hero.jpg",
+      "card": "plates/fenrir-card.jpg",
+      "blur": "plates/fenrir-blur.jpg"
+    },
+    {
+      "id": "valkyrie",
+      "name": "Valkyrie",
+      "epithet": "she names who rides north",
+      "color": "plates/valkyrie-hero.jpg",
+      "card": "plates/valkyrie-card.jpg",
+      "blur": "plates/valkyrie-blur.jpg"
+    },
+    {
+      "id": "baba-yaga",
+      "name": "Baba Yaga",
+      "epithet": "the house stands on chicken legs",
+      "color": "plates/baba-yaga-hero.jpg",
+      "card": "plates/baba-yaga-card.jpg",
+      "blur": "plates/baba-yaga-blur.jpg"
+    },
+    {
+      "id": "phoenix",
+      "name": "Phoenix",
+      "epithet": "five hundred years, then fire",
+      "color": "plates/phoenix-hero.jpg",
+      "card": "plates/phoenix-card.jpg",
+      "blur": "plates/phoenix-blur.jpg"
+    }
+  ]
+}
