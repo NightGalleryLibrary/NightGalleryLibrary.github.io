@@ -91,10 +91,7 @@
         y: t.clientY || 0,
         moved: false
       };
-      if (id === "persephone" && !self._flooded.persephone && !self.reduced) {
-        el.classList.add("is-ghosting");
-        self.onGhost(id);
-      }
+
     }
 
     function move(e) {
@@ -105,7 +102,7 @@
       if (dx * dx + dy * dy > MOVE * MOVE) {
         self._press.moved = true;
         el.classList.remove("is-ghosting");
-        if (id === "persephone" && !self._flooded.persephone) self.onGhostCancel(id);
+
       }
     }
 
@@ -117,7 +114,6 @@
       self._press = null;
       if (moved) {
         pressEl.classList.remove("is-ghosting");
-        if (pressId === "persephone" && !self._flooded.persephone) self.onGhostCancel(pressId);
         return;
       }
       self._onCommit(pressEl, pressId);
@@ -131,18 +127,8 @@
   };
 
   Nave.prototype._onCommit = function (el, id) {
-    if (id === "persephone" && !this._flooded.persephone && !this.reduced) {
-      el.classList.remove("is-ghosting");
-      el.classList.add("is-flooding", "is-lit");
-      this._flooded.persephone = true;
-      this.onFlood(id);
-      return;
-    }
-    if (id === "persephone" && !this._flooded.persephone && this.reduced) {
-      this._flooded.persephone = true;
-      el.classList.add("is-lit", "is-flooding");
-      this.onFlood(id);
-    }
+    el.classList.remove("is-ghosting");
+    el.classList.add("is-lit");
     this.onOpenChapel(id);
   };
 

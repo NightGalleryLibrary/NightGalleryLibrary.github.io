@@ -58,7 +58,9 @@
       }
       tx = e.clientX;
       ty = e.clientY;
-      show();
+      var over = e.target && e.target.closest && e.target.closest(".lancet, .rose-window");
+      if (over) show();
+      else hide();
     }, { passive: true });
     window.addEventListener("pointerleave", hide, { passive: true });
     window.addEventListener("blur", hide);

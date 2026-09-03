@@ -66,7 +66,7 @@
     + "  float mask = windowMask(uv);"
     + "  if (mask < 0.004) { gl_FragColor = vec4(0.0); return; }"
     + "  vec2 suv = uv * uCrop + uCropOff;"
-    + "  float amp = mix(0.004, 0.010, 0.55);"
+    + "  float amp = mix(0.0015, 0.0045, 0.4);"
     + "  vec2 warp = uWarp * amp * vec2("
     + "    sin(suv.y * 17.0 + uTime * 0.31 + suv.x * 3.0),"
     + "    cos(suv.x * 13.0 + uTime * 0.22 + suv.y * 2.4)"
@@ -91,8 +91,16 @@
     + "    float front = exp(-pow((along - uFlood) * 16.0, 2.0));"
     + "    outc += front * 0.42 * vec3(0.92, 0.78, 0.32) * step(0.02, uFlood) * step(uFlood, 0.98);"
     + "  }"
-    + "  float vit = 0.78 + 0.22 * (1.0 - edge);"
+    + "  float vit = 0.82 + 0.18 * (1.0 - edge);"
     + "  outc *= vit;"
+    + "  vec2 sunN = uSun;"
+    + "  float sl = length(sunN);"
+    + "  sunN = sl > 0.04 ? sunN / sl : vec2(0.25, 0.6);"
+    + "  float spec = pow(max(0.0, dot(dir, sunN)), 22.0);"
+    + "  outc += spec * mix(0.08, 0.55, edge) * vec3(1.0, 0.93, 0.72);"
+    + "  vec2 tanv = vec2(-sunN.y, sunN.x);"
+    + "  float streak = exp(-pow(dot(uv - vec2(0.5), tanv) * 7.5, 2.0));"
+    + "  outc += streak * (1.0 - edge) * 0.07 * vec3(0.98, 0.90, 0.72);"
     + "  gl_FragColor = vec4(outc * mask, mask);"
     + "}";
 
@@ -216,15 +224,16 @@
       if (!glass) continue;
       var color = glass.querySelector(".plate-color");
       var number = glass.querySelector(".plate-number");
-      var dual = id === "persephone" && number;
+      var kind = el.getAttribute("data-kind") || "color";
+      var img = kind === "number" ? (number || color) : (color || number);
       this._attach(glass, {
-        id: id,
+        id: id + "-" + kind,
         shape: 1,
         crop: [0.86, 0.78],
         cropOff: [0.07, 0.13],
-        imgA: dual ? number : color,
-        imgB: dual ? color : null,
-        flood: dual ? 0 : 1
+        imgA: img,
+        imgB: null,
+        flood: 1
       });
     }
   };
