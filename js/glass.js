@@ -216,26 +216,8 @@
         imgB: null
       });
     }
-    var lancets = document.querySelectorAll(".lancet");
-    for (var i = 0; i < lancets.length; i++) {
-      var el = lancets[i];
-      var id = el.getAttribute("data-plate");
-      var glass = el.querySelector(".lancet-glass");
-      if (!glass) continue;
-      var color = glass.querySelector(".plate-color");
-      var number = glass.querySelector(".plate-number");
-      var kind = el.getAttribute("data-kind") || "color";
-      var img = kind === "number" ? (number || color) : (color || number);
-      this._attach(glass, {
-        id: id + "-" + kind,
-        shape: 1,
-        crop: [0.86, 0.78],
-        cropOff: [0.07, 0.13],
-        imgA: img,
-        imgB: null,
-        flood: 1
-      });
-    }
+    /* Lancets are rectangular plates with their own greek-key.
+       A lancet shader/clip sits off those borders — leave them as photographs. */
   };
 
   Glass.prototype._attach = function (host, spec) {
