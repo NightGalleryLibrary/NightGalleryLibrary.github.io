@@ -206,11 +206,7 @@ html.lenis, html.lenis body { height: auto; }
   animation: scribe 0.85s var(--ease-cathedral) forwards;
 }
 #threshold .meander {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
+  display: none;
 }
 #threshold .meander path {
   fill: none;
@@ -252,24 +248,15 @@ html.no-motion .floor-fallback { opacity: 0.85; }
 
 /* ========== MASONRY ========== */
 .masonry {
-  background-color: var(--navy);
+  background-color: #070B14;
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201, 162, 39, 0.05), transparent 55%),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 17px,
-      rgba(0, 0, 0, 0.38) 17px 18px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 47px,
-      rgba(0, 0, 0, 0.28) 47px 48px
-    ),
-    linear-gradient(180deg, #0a1220 0%, #070B14 42%, #080c16 100%);
-  background-size: 100% 100%, 100% 36px, 96px 100%, 100% 100%;
+    radial-gradient(ellipse 70% 45% at 50% 8%, rgba(201, 162, 39, 0.045), transparent 58%),
+    radial-gradient(ellipse 90% 70% at 50% 100%, rgba(0, 0, 0, 0.55), transparent 62%),
+    linear-gradient(180deg, #0a101c 0%, #070B14 48%, #05080f 100%);
 }
 
 .stone-floor {
+  display: none;
   position: absolute;
   left: 0;
   right: 0;
@@ -298,15 +285,14 @@ html.no-motion .floor-fallback { opacity: 0.85; }
 
 .bay {
   position: relative;
-  min-height: 100svh;
-  min-height: 100dvh;
+  min-height: 0;
   padding: calc(28px + var(--safe-t)) calc(20px + var(--safe-r)) calc(32px + var(--safe-b)) calc(20px + var(--safe-l));
 }
 
 .pier {
-  height: 10vh;
-  min-height: 56px;
-  background: var(--came);
+  height: 28px;
+  min-height: 28px;
+  background: transparent;
   position: relative;
   z-index: 3;
 }
@@ -324,8 +310,10 @@ html.no-motion .floor-fallback { opacity: 0.85; }
 #rose {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   overflow: hidden;
+  min-height: 100svh;
+  min-height: 100dvh;
 }
 #rose .wall {
   flex: 1;
@@ -658,7 +646,7 @@ html:not(.no-motion) .lancet.is-attending .lancet-emit {
 
 /* ========== LEAVE ========== */
 #leave {
-  min-height: 100svh;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -952,8 +940,11 @@ html.no-motion .rose-aperture img { opacity: 1; }
     0 0 8px 2px rgba(201, 162, 39, 0.7),
     0 0 22px 8px rgba(201, 162, 39, 0.22);
 }
-body.gold-cursor,
-body.gold-cursor * { cursor: none !important; }
+body.gold-cursor { cursor: auto; }
+body.gold-cursor .lancet,
+body.gold-cursor .lancet *,
+body.gold-cursor .rose-window,
+body.gold-cursor .rose-window * { cursor: none !important; }
 @media (hover: none), (pointer: coarse) {
   #goldCursor { display: none !important; }
   body.gold-cursor,
@@ -988,8 +979,10 @@ body.gold-cursor * { cursor: none !important; }
 #rose {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   overflow: hidden;
+  min-height: 100svh;
+  min-height: 100dvh;
 }
 #rose .wall {
   flex: 1;
@@ -1006,7 +999,7 @@ body.gold-cursor * { cursor: none !important; }
 
 .rose-window {
   position: relative;
-  width: min(64vw, 46svh, 420px);
+  width: min(72vw, 62svh, 520px);
   aspect-ratio: 1 / 1;
   padding: 0;
   background: none;
@@ -1151,11 +1144,7 @@ body.gold-cursor * { cursor: none !important; }
 }
 
 #rose .stone-floor {
-  position: relative;
-  height: 22vh;
-  min-height: 120px;
-  flex-shrink: 0;
-  z-index: 4;
+  display: none;
 }
 .stone-floor {
   z-index: 4;
@@ -1456,9 +1445,9 @@ html:not(.no-motion) .lancet.is-attending .lancet-emit {
 .lancet.is-lit .lancet-emit { opacity: 0.36; }
 
 .rose-spill {
-  height: 28vh;
-  opacity: 0.85;
-  filter: blur(14px);
+  height: 16vh;
+  opacity: 0.55;
+  filter: blur(18px);
 }
 
 .tilt-ask {
@@ -1520,7 +1509,7 @@ html:not(.no-motion) .lancet.is-attending .lancet-emit {
   color: #EDE4D4;
 }
 
-body.gold-cursor { cursor: none; }
+body.gold-cursor { cursor: auto; }
 body.gold-cursor .lancet,
 body.gold-cursor .rose-window { cursor: none; }
 
@@ -1649,3 +1638,58 @@ body.gold-cursor .rose-window { cursor: none; }
   align-items: center;
   justify-content: center;
 }
+
+
+/* ========== QUIET FIELD (wins) ========== */
+.masonry {
+  background-color: #070B14;
+  background-image:
+    radial-gradient(ellipse 70% 45% at 50% 8%, rgba(201, 162, 39, 0.045), transparent 58%),
+    radial-gradient(ellipse 90% 70% at 50% 100%, rgba(0, 0, 0, 0.55), transparent 62%),
+    linear-gradient(180deg, #0a101c 0%, #070B14 48%, #05080f 100%);
+  background-size: auto;
+}
+
+.bay.lancet-bay {
+  min-height: 0;
+  padding-top: clamp(28px, 6vh, 64px);
+  padding-bottom: clamp(36px, 8vh, 80px);
+}
+
+.pier { height: 28px; min-height: 28px; background: transparent; }
+.pier::after { opacity: 0.35; }
+
+#threshold .meander { display: none !important; }
+#threshold .scribe { height: 2px; width: min(52vw, 420px); }
+#threshold .hairline {
+  height: 1px;
+  background: #C9A227;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+#threshold .line {
+  margin-top: 28px;
+  font-size: clamp(18px, 2.6vw, 22px);
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: #E8D9B8;
+  max-width: 18em;
+}
+
+.lancet-emit { opacity: 0.12; }
+.lancet.is-lit .lancet-emit { opacity: 0.18; }
+
+.floor-fallback { opacity: 0 !important; }
+#caustics { opacity: 0.18; }
+#caustics.is-live { opacity: 0.22; }
+#caustics.is-dim { opacity: 0.1; }
+
+body.gold-cursor { cursor: auto; }
+
+body.gold-cursor,
+body.gold-cursor * { cursor: auto !important; }
+body.gold-cursor .lancet,
+body.gold-cursor .lancet *,
+body.gold-cursor .rose-window,
+body.gold-cursor .rose-window * { cursor: none !important; }
+#how { min-height: 0; padding-top: 48px; padding-bottom: 64px; }

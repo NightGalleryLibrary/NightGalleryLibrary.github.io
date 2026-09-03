@@ -42,7 +42,8 @@
       "epithet": "with somewhere to be",
       "color": "plates/medusa-hero.jpg",
       "card": "plates/medusa-card.jpg",
-      "blur": "plates/medusa-blur.jpg"
+      "blur": "plates/medusa-blur.jpg",
+      "numbered": "plates/medusa-number-hero.jpg"
     },
     {
       "id": "hecate",
@@ -50,7 +51,8 @@
       "epithet": "three faces at the joining",
       "color": "plates/hecate-hero.jpg",
       "card": "plates/hecate-card.jpg",
-      "blur": "plates/hecate-blur.jpg"
+      "blur": "plates/hecate-blur.jpg",
+      "numbered": "plates/hecate-number-hero.jpg"
     },
     {
       "id": "circe",
@@ -58,7 +60,8 @@
       "epithet": "the bronze bowl, and the year they stayed",
       "color": "plates/circe-hero.jpg",
       "card": "plates/circe-card.jpg",
-      "blur": "plates/circe-blur.jpg"
+      "blur": "plates/circe-blur.jpg",
+      "numbered": "plates/circe-number-hero.jpg"
     },
     {
       "id": "fenrir",
@@ -66,7 +69,8 @@
       "epithet": "a god's hand still in his mouth",
       "color": "plates/fenrir-hero.jpg",
       "card": "plates/fenrir-card.jpg",
-      "blur": "plates/fenrir-blur.jpg"
+      "blur": "plates/fenrir-blur.jpg",
+      "numbered": "plates/fenrir-number-hero.jpg"
     },
     {
       "id": "valkyrie",
@@ -74,7 +78,8 @@
       "epithet": "she names who rides north",
       "color": "plates/valkyrie-hero.jpg",
       "card": "plates/valkyrie-card.jpg",
-      "blur": "plates/valkyrie-blur.jpg"
+      "blur": "plates/valkyrie-blur.jpg",
+      "numbered": "plates/valkyrie-number-hero.jpg"
     },
     {
       "id": "baba-yaga",
@@ -82,7 +87,8 @@
       "epithet": "the house stands on chicken legs",
       "color": "plates/baba-yaga-hero.jpg",
       "card": "plates/baba-yaga-card.jpg",
-      "blur": "plates/baba-yaga-blur.jpg"
+      "blur": "plates/baba-yaga-blur.jpg",
+      "numbered": "plates/baba-yaga-number-hero.jpg"
     },
     {
       "id": "phoenix",
@@ -90,7 +96,8 @@
       "epithet": "five hundred years, then fire",
       "color": "plates/phoenix-hero.jpg",
       "card": "plates/phoenix-card.jpg",
-      "blur": "plates/phoenix-blur.jpg"
+      "blur": "plates/phoenix-blur.jpg",
+      "numbered": "plates/phoenix-number-hero.jpg"
     }
   ]
 }

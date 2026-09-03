@@ -21,11 +21,11 @@
       global.gsap.registerPlugin(global.ScrollTrigger);
       var Lenis = global.Lenis;
       this.lenis = new Lenis({
-        duration: 1.15,
+        duration: 0.72,
         easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
         smoothWheel: true,
-        wheelMultiplier: 0.9,
-        touchMultiplier: 1.1,
+        wheelMultiplier: 1.15,
+        touchMultiplier: 1.2,
         autoRaf: false
       });
       this.lenis.on("scroll", function (e) {
