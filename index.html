@@ -3,468 +3,446 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#070B14">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="Night Garden Library — Book One: Myths &amp; Monsters. A nave of eight windows.">
+  <meta name="description" content="Night Garden Library — Book One: Myths &amp; Monsters. Forty stained-glass windows, numbered and finished.">
   <title>Night Garden Library — Myths &amp; Monsters</title>
-  <style>
-    html, body { background: #000; color: #C9A227; margin: 0; }
-    #threshold { background: #000; }
-  </style>
-  <script>
-    (function () {
-      try {
-        if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          document.documentElement.classList.add("no-motion");
-        }
-      } catch (e) {}
-    })();
-  </script>
   <link rel="preload" href="fonts/Cinzel-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="plates/rose-roundel-hero.jpg" as="image">
-  <link rel="stylesheet" href="vendor/lenis.css?v=3">
-  <link rel="stylesheet" href="css/nave.css?v=3">
+  <link rel="stylesheet" href="css/nave.css?v=4">
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
-  <canvas id="caustics" aria-hidden="true"></canvas>
-  <div class="floor-fallback" aria-hidden="true"></div>
-  <div id="goldCursor" aria-hidden="true" hidden><span class="speck"></span></div>
 
-  <svg class="svg-defs" aria-hidden="true" focusable="false">
-    <defs>
-      <clipPath id="lancetClip" clipPathUnits="objectBoundingBox">
-        <path d="M0.5 0.012 C0.5 0.012 0.965 0.30 0.965 0.54 L0.965 0.988 L0.035 0.988 L0.035 0.54 C0.035 0.30 0.5 0.012 0.5 0.012 Z"/>
-      </clipPath>
-      <clipPath id="roseClip" clipPathUnits="objectBoundingBox">
-        <circle cx="0.5" cy="0.5" r="0.5"/>
-      </clipPath>
-    </defs>
-  </svg>
-
-  <div id="threshold" role="status" aria-live="polite">
-    <div class="scribe" aria-hidden="true">
-      <div class="hairline"></div>
-      <svg class="meander" viewBox="0 0 392 12" preserveAspectRatio="none">
-        <path id="meanderPath" d="M0,10 L0,0 L5,0 L5,7 L8,7 L8,0 L11,0 L11,10 M14,10 L14,0 L19,0 L19,7 L22,7 L22,0 L25,0 L25,10 M28,10 L28,0 L33,0 L33,7 L36,7 L36,0 L39,0 L39,10 M42,10 L42,0 L47,0 L47,7 L50,7 L50,0 L53,0 L53,10 M56,10 L56,0 L61,0 L61,7 L64,7 L64,0 L67,0 L67,10 M70,10 L70,0 L75,0 L75,7 L78,7 L78,0 L81,0 L81,10 M84,10 L84,0 L89,0 L89,7 L92,7 L92,0 L95,0 L95,10 M98,10 L98,0 L103,0 L103,7 L106,7 L106,0 L109,0 L109,10 M112,10 L112,0 L117,0 L117,7 L120,7 L120,0 L123,0 L123,10 M126,10 L126,0 L131,0 L131,7 L134,7 L134,0 L137,0 L137,10 M140,10 L140,0 L145,0 L145,7 L148,7 L148,0 L151,0 L151,10 M154,10 L154,0 L159,0 L159,7 L162,7 L162,0 L165,0 L165,10 M168,10 L168,0 L173,0 L173,7 L176,7 L176,0 L179,0 L179,10 M182,10 L182,0 L187,0 L187,7 L190,7 L190,0 L193,0 L193,10 M196,10 L196,0 L201,0 L201,7 L204,7 L204,0 L207,0 L207,10 M210,10 L210,0 L215,0 L215,7 L218,7 L218,0 L221,0 L221,10 M224,10 L224,0 L229,0 L229,7 L232,7 L232,0 L235,0 L235,10 M238,10 L238,0 L243,0 L243,7 L246,7 L246,0 L249,0 L249,10 M252,10 L252,0 L257,0 L257,7 L260,7 L260,0 L263,0 L263,10 M266,10 L266,0 L271,0 L271,7 L274,7 L274,0 L277,0 L277,10 M280,10 L280,0 L285,0 L285,7 L288,7 L288,0 L291,0 L291,10 M294,10 L294,0 L299,0 L299,7 L302,7 L302,0 L305,0 L305,10 M308,10 L308,0 L313,0 L313,7 L316,7 L316,0 L319,0 L319,10 M322,10 L322,0 L327,0 L327,7 L330,7 L330,0 L333,0 L333,10 M336,10 L336,0 L341,0 L341,7 L344,7 L344,0 L347,0 L347,10 M350,10 L350,0 L355,0 L355,7 L358,7 L358,0 L361,0 L361,10 M364,10 L364,0 L369,0 L369,7 L372,7 L372,0 L375,0 L375,10 M378,10 L378,0 L383,0 L383,7 L386,7 L386,0 L389,0 L389,10"/>
-      </svg>
+  <header id="lintel">
+    <div class="brand">
+      <img class="seal" src="plates/rose-roundel-card.jpg" alt="" width="72" height="72">
+      <div class="titles">
+        <p class="kicker">Night Garden Library</p>
+        <h1>Myths &amp; Monsters</h1>
+        <p class="count">Forty windows. Numbered, then filled.</p>
+      </div>
     </div>
-    <p class="line">The old stories never really left.</p>
-  </div>
+    <nav class="clerestory" aria-label="All forty plates">
+      <a class="light" href="#plate-medusa" data-plate="medusa" title="Medusa"><img src="plates/medusa-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-hecate" data-plate="hecate" title="Hecate"><img src="plates/hecate-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-persephone" data-plate="persephone" title="Persephone"><img src="plates/persephone-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-circe" data-plate="circe" title="Circe"><img src="plates/circe-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-minotaur" data-plate="minotaur" title="Minotaur"><img src="plates/minotaur-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-cerberus" data-plate="cerberus" title="Cerberus"><img src="plates/cerberus-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-hydra" data-plate="hydra" title="Hydra"><img src="plates/hydra-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-sirens" data-plate="sirens" title="Sirens"><img src="plates/sirens-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-chimera" data-plate="chimera" title="Chimera"><img src="plates/chimera-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-sphinx" data-plate="sphinx" title="Sphinx"><img src="plates/sphinx-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-cyclops" data-plate="cyclops" title="Cyclops"><img src="plates/cyclops-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-nemean-lion" data-plate="nemean-lion" title="Nemean Lion"><img src="plates/nemean-lion-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-fenrir" data-plate="fenrir" title="Fenrir"><img src="plates/fenrir-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-jormungandr" data-plate="jormungandr" title="Jörmungandr"><img src="plates/jormungandr-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-hel" data-plate="hel" title="Hel"><img src="plates/hel-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-yggdrasil" data-plate="yggdrasil" title="Yggdrasil"><img src="plates/yggdrasil-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-valkyrie" data-plate="valkyrie" title="Valkyrie"><img src="plates/valkyrie-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-odin" data-plate="odin" title="Odin"><img src="plates/odin-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-huginn" data-plate="huginn" title="Huginn"><img src="plates/huginn-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-sleipnir" data-plate="sleipnir" title="Sleipnir"><img src="plates/sleipnir-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-baba-yaga" data-plate="baba-yaga" title="Baba Yaga"><img src="plates/baba-yaga-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-cernunnos" data-plate="cernunnos" title="Cernunnos"><img src="plates/cernunnos-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-firebird" data-plate="firebird" title="Firebird"><img src="plates/firebird-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-leshy" data-plate="leshy" title="Leshy"><img src="plates/leshy-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-phoenix" data-plate="phoenix" title="Phoenix"><img src="plates/phoenix-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-griffin" data-plate="griffin" title="Griffin"><img src="plates/griffin-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-dragon" data-plate="dragon" title="Dragon"><img src="plates/dragon-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-basilisk" data-plate="basilisk" title="Basilisk"><img src="plates/basilisk-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-manticore" data-plate="manticore" title="Manticore"><img src="plates/manticore-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-unicorn" data-plate="unicorn" title="Unicorn"><img src="plates/unicorn-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-kitsune" data-plate="kitsune" title="Kitsune"><img src="plates/kitsune-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-dryad" data-plate="dryad" title="Dryad"><img src="plates/dryad-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-satyr" data-plate="satyr" title="Satyr"><img src="plates/satyr-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-pegasus" data-plate="pegasus" title="Pegasus"><img src="plates/pegasus-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-centaur" data-plate="centaur" title="Centaur"><img src="plates/centaur-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-harpy" data-plate="harpy" title="Harpy"><img src="plates/harpy-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-kraken" data-plate="kraken" title="Kraken"><img src="plates/kraken-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-leviathan" data-plate="leviathan" title="Leviathan"><img src="plates/leviathan-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-banshee" data-plate="banshee" title="Banshee"><img src="plates/banshee-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+      <a class="light" href="#plate-anubis" data-plate="anubis" title="Anubis"><img src="plates/anubis-thumb.jpg" alt="" width="80" height="104" loading="eager"></a>
+    </nav>
+  </header>
 
-  <main id="aisle">
-    <section id="rose" class="bay masonry" data-bay="rose">
-      <div class="wall">
-        <div class="rose-window" id="roseFrame">
-          <div class="rose-halo" aria-hidden="true"></div>
-          <div class="rose-aperture" style="background-image:url('plates/rose-roundel-blur.jpg')">
-            <img src="plates/rose-roundel-hero.jpg" alt="Myths and Monsters rose window: jackal, phoenix, pomegranate, wolf" width="800" height="800">
-          </div>
-          <svg class="rose-cames" viewBox="0 0 100 100" aria-hidden="true">
-            <circle class="came-lead" cx="50" cy="50" r="48.8" fill="none"/>
-            <circle class="came-gold" cx="50" cy="50" r="47.15" fill="none"/>
-            <circle class="came-gold-inner" cx="50" cy="50" r="45.35" fill="none"/>
-          </svg>
-          <div class="sun-speck" id="sunSpeck" hidden></div>
-        </div>
-      </div>
-      <div class="rose-spill" aria-hidden="true"></div>
-      <div class="stone-floor" id="floor" aria-hidden="true"></div>
-      <button type="button" class="tilt-ask" id="tiltAsk" hidden>Tip the glass</button>
-    </section>
-
-    <div class="pier" aria-hidden="true"></div>
-
-    <section class="bay masonry lancet-bay" data-plate="persephone">
-      <article class="lancet lancet-number" data-plate="persephone" data-kind="number" tabindex="0" role="button" aria-label="persephone numbered">
-        <div class="lancet-emit" style="background-image:url('plates/persephone-number-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/persephone-number-blur.jpg')">
-          <img class="plate plate-number" src="plates/persephone-number-card.jpg" alt="" width="600" height="750" loading="eager">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+  <main id="wall">
+    <div class="row">
+      <article class="pair" id="plate-medusa" data-plate="medusa" tabindex="0" role="button" aria-label="Medusa, numbered and finished">
+        <img class="pane pane-number" src="plates/medusa-number-card.jpg" alt="" width="560" height="725" loading="eager" fetchpriority="high">
+        <header class="label">
+          <h2 class="name">Medusa</h2>
+          <p class="epithet">with somewhere to be</p>
+        </header>
+        <img class="pane pane-color" src="plates/medusa-card.jpg" alt="" width="560" height="725" loading="eager">
       </article>
-      <article class="lancet lancet-color" data-plate="persephone" data-kind="color" tabindex="0" role="button" aria-label="persephone finished">
-        <div class="lancet-emit" style="background-image:url('plates/persephone-color-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/persephone-color-blur.jpg')">
-          <img class="plate plate-color" src="plates/persephone-color-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+      <article class="pair" id="plate-hecate" data-plate="hecate" tabindex="0" role="button" aria-label="Hecate, numbered and finished">
+        <img class="pane pane-number" src="plates/hecate-number-card.jpg" alt="" width="560" height="725" loading="eager" fetchpriority="high">
+        <header class="label">
+          <h2 class="name">Hecate</h2>
+          <p class="epithet">three faces at the joining</p>
+        </header>
+        <img class="pane pane-color" src="plates/hecate-card.jpg" alt="" width="560" height="725" loading="eager">
       </article>
-      <header class="lancet-caption">
-        <h2 class="name">Persephone</h2>
-        <p class="epithet">six seeds, and the year divides</p>
-      </header>
-    </section>
-
-    <div class="pier" aria-hidden="true"></div>
-
-    <section class="bay masonry lancet-bay" data-plate="medusa">
-      <article class="lancet lancet-number" data-plate="medusa" data-kind="number" tabindex="0" role="button" aria-label="medusa numbered">
-        <div class="lancet-emit" style="background-image:url('plates/medusa-number-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/medusa-number-blur.jpg')">
-          <img class="plate plate-number" src="plates/medusa-number-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-persephone" data-plate="persephone" tabindex="0" role="button" aria-label="Persephone, numbered and finished">
+        <img class="pane pane-number" src="plates/persephone-number-card.jpg" alt="" width="560" height="725" loading="eager" fetchpriority="high">
+        <header class="label">
+          <h2 class="name">Persephone</h2>
+          <p class="epithet">six seeds, and the year divides</p>
+        </header>
+        <img class="pane pane-color" src="plates/persephone-card.jpg" alt="" width="560" height="725" loading="eager">
       </article>
-      <article class="lancet lancet-color" data-plate="medusa" data-kind="color" tabindex="0" role="button" aria-label="medusa finished">
-        <div class="lancet-emit" style="background-image:url('plates/medusa-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/medusa-blur.jpg')">
-          <img class="plate plate-color" src="plates/medusa-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+      <article class="pair" id="plate-circe" data-plate="circe" tabindex="0" role="button" aria-label="Circe, numbered and finished">
+        <img class="pane pane-number" src="plates/circe-number-card.jpg" alt="" width="560" height="725" loading="eager" fetchpriority="high">
+        <header class="label">
+          <h2 class="name">Circe</h2>
+          <p class="epithet">the bronze bowl, and the year they stayed</p>
+        </header>
+        <img class="pane pane-color" src="plates/circe-card.jpg" alt="" width="560" height="725" loading="eager">
       </article>
-      <header class="lancet-caption">
-        <h2 class="name">Medusa</h2>
-        <p class="epithet">with somewhere to be</p>
-      </header>
-    </section>
-
-    <div class="pier" aria-hidden="true"></div>
-
-    <section class="bay masonry lancet-bay" data-plate="fenrir">
-      <article class="lancet lancet-number" data-plate="fenrir" data-kind="number" tabindex="0" role="button" aria-label="fenrir numbered">
-        <div class="lancet-emit" style="background-image:url('plates/fenrir-number-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/fenrir-number-blur.jpg')">
-          <img class="plate plate-number" src="plates/fenrir-number-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-minotaur" data-plate="minotaur" tabindex="0" role="button" aria-label="Minotaur, numbered and finished">
+        <img class="pane pane-number" src="plates/minotaur-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Minotaur</h2>
+          <p class="epithet">the heart of the maze</p>
+        </header>
+        <img class="pane pane-color" src="plates/minotaur-card.jpg" alt="" width="560" height="725" loading="lazy">
       </article>
-      <article class="lancet lancet-color" data-plate="fenrir" data-kind="color" tabindex="0" role="button" aria-label="fenrir finished">
-        <div class="lancet-emit" style="background-image:url('plates/fenrir-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/fenrir-blur.jpg')">
-          <img class="plate plate-color" src="plates/fenrir-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+      <article class="pair" id="plate-cerberus" data-plate="cerberus" tabindex="0" role="button" aria-label="Cerberus, numbered and finished">
+        <img class="pane pane-number" src="plates/cerberus-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Cerberus</h2>
+          <p class="epithet">three throats at the gate</p>
+        </header>
+        <img class="pane pane-color" src="plates/cerberus-card.jpg" alt="" width="560" height="725" loading="lazy">
       </article>
-      <header class="lancet-caption">
-        <h2 class="name">Fenrir</h2>
-        <p class="epithet">a god's hand still in his mouth</p>
-      </header>
-    </section>
-
-    <div class="pier" aria-hidden="true"></div>
-
-    <section class="bay masonry lancet-bay" data-plate="baba-yaga">
-      <article class="lancet lancet-number" data-plate="baba-yaga" data-kind="number" tabindex="0" role="button" aria-label="baba-yaga numbered">
-        <div class="lancet-emit" style="background-image:url('plates/baba-yaga-number-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/baba-yaga-number-blur.jpg')">
-          <img class="plate plate-number" src="plates/baba-yaga-number-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-hydra" data-plate="hydra" tabindex="0" role="button" aria-label="Hydra, numbered and finished">
+        <img class="pane pane-number" src="plates/hydra-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Hydra</h2>
+          <p class="epithet">cut one, two more</p>
+        </header>
+        <img class="pane pane-color" src="plates/hydra-card.jpg" alt="" width="560" height="725" loading="lazy">
       </article>
-      <article class="lancet lancet-color" data-plate="baba-yaga" data-kind="color" tabindex="0" role="button" aria-label="baba-yaga finished">
-        <div class="lancet-emit" style="background-image:url('plates/baba-yaga-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/baba-yaga-blur.jpg')">
-          <img class="plate plate-color" src="plates/baba-yaga-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+      <article class="pair" id="plate-sirens" data-plate="sirens" tabindex="0" role="button" aria-label="Sirens, numbered and finished">
+        <img class="pane pane-number" src="plates/sirens-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Sirens</h2>
+          <p class="epithet">the cliff, and the wreck</p>
+        </header>
+        <img class="pane pane-color" src="plates/sirens-card.jpg" alt="" width="560" height="725" loading="lazy">
       </article>
-      <header class="lancet-caption">
-        <h2 class="name">Baba Yaga</h2>
-        <p class="epithet">the house stands on chicken legs</p>
-      </header>
-    </section>
-
-    <div class="pier" aria-hidden="true"></div>
-
-    <section class="bay masonry lancet-bay" data-plate="phoenix">
-      <article class="lancet lancet-number" data-plate="phoenix" data-kind="number" tabindex="0" role="button" aria-label="phoenix numbered">
-        <div class="lancet-emit" style="background-image:url('plates/phoenix-number-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/phoenix-number-blur.jpg')">
-          <img class="plate plate-number" src="plates/phoenix-number-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-chimera" data-plate="chimera" tabindex="0" role="button" aria-label="Chimera, numbered and finished">
+        <img class="pane pane-number" src="plates/chimera-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Chimera</h2>
+          <p class="epithet">lion, goat, and the fire</p>
+        </header>
+        <img class="pane pane-color" src="plates/chimera-card.jpg" alt="" width="560" height="725" loading="lazy">
       </article>
-      <article class="lancet lancet-color" data-plate="phoenix" data-kind="color" tabindex="0" role="button" aria-label="phoenix finished">
-        <div class="lancet-emit" style="background-image:url('plates/phoenix-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/phoenix-blur.jpg')">
-          <img class="plate plate-color" src="plates/phoenix-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+      <article class="pair" id="plate-sphinx" data-plate="sphinx" tabindex="0" role="button" aria-label="Sphinx, numbered and finished">
+        <img class="pane pane-number" src="plates/sphinx-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Sphinx</h2>
+          <p class="epithet">the riddle under her paws</p>
+        </header>
+        <img class="pane pane-color" src="plates/sphinx-card.jpg" alt="" width="560" height="725" loading="lazy">
       </article>
-      <header class="lancet-caption">
-        <h2 class="name">Phoenix</h2>
-        <p class="epithet">five hundred years, then fire</p>
-      </header>
-    </section>
-
-    <div class="pier" aria-hidden="true"></div>
-
-    <section class="bay masonry lancet-bay" data-plate="valkyrie">
-      <article class="lancet lancet-number" data-plate="valkyrie" data-kind="number" tabindex="0" role="button" aria-label="valkyrie numbered">
-        <div class="lancet-emit" style="background-image:url('plates/valkyrie-number-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/valkyrie-number-blur.jpg')">
-          <img class="plate plate-number" src="plates/valkyrie-number-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-cyclops" data-plate="cyclops" tabindex="0" role="button" aria-label="Cyclops, numbered and finished">
+        <img class="pane pane-number" src="plates/cyclops-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Cyclops</h2>
+          <p class="epithet">one eye, a whole flock</p>
+        </header>
+        <img class="pane pane-color" src="plates/cyclops-card.jpg" alt="" width="560" height="725" loading="lazy">
       </article>
-      <article class="lancet lancet-color" data-plate="valkyrie" data-kind="color" tabindex="0" role="button" aria-label="valkyrie finished">
-        <div class="lancet-emit" style="background-image:url('plates/valkyrie-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/valkyrie-blur.jpg')">
-          <img class="plate plate-color" src="plates/valkyrie-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+      <article class="pair" id="plate-nemean-lion" data-plate="nemean-lion" tabindex="0" role="button" aria-label="Nemean Lion, numbered and finished">
+        <img class="pane pane-number" src="plates/nemean-lion-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Nemean Lion</h2>
+          <p class="epithet">hide that will not take a blade</p>
+        </header>
+        <img class="pane pane-color" src="plates/nemean-lion-card.jpg" alt="" width="560" height="725" loading="lazy">
       </article>
-      <header class="lancet-caption">
-        <h2 class="name">Valkyrie</h2>
-        <p class="epithet">she names who rides north</p>
-      </header>
-    </section>
-
-    <div class="pier" aria-hidden="true"></div>
-
-    <section class="bay masonry lancet-bay" data-plate="hecate">
-      <article class="lancet lancet-number" data-plate="hecate" data-kind="number" tabindex="0" role="button" aria-label="hecate numbered">
-        <div class="lancet-emit" style="background-image:url('plates/hecate-number-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/hecate-number-blur.jpg')">
-          <img class="plate plate-number" src="plates/hecate-number-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-fenrir" data-plate="fenrir" tabindex="0" role="button" aria-label="Fenrir, numbered and finished">
+        <img class="pane pane-number" src="plates/fenrir-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Fenrir</h2>
+          <p class="epithet">a god&#x27;s hand still in his mouth</p>
+        </header>
+        <img class="pane pane-color" src="plates/fenrir-card.jpg" alt="" width="560" height="725" loading="lazy">
       </article>
-      <article class="lancet lancet-color" data-plate="hecate" data-kind="color" tabindex="0" role="button" aria-label="hecate finished">
-        <div class="lancet-emit" style="background-image:url('plates/hecate-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/hecate-blur.jpg')">
-          <img class="plate plate-color" src="plates/hecate-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+      <article class="pair" id="plate-jormungandr" data-plate="jormungandr" tabindex="0" role="button" aria-label="Jörmungandr, numbered and finished">
+        <img class="pane pane-number" src="plates/jormungandr-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Jörmungandr</h2>
+          <p class="epithet">the sea that bites its tail</p>
+        </header>
+        <img class="pane pane-color" src="plates/jormungandr-card.jpg" alt="" width="560" height="725" loading="lazy">
       </article>
-      <header class="lancet-caption">
-        <h2 class="name">Hecate</h2>
-        <p class="epithet">three faces at the joining</p>
-      </header>
-    </section>
-
-    <div class="pier" aria-hidden="true"></div>
-
-    <section class="bay masonry lancet-bay" data-plate="circe">
-      <article class="lancet lancet-number" data-plate="circe" data-kind="number" tabindex="0" role="button" aria-label="circe numbered">
-        <div class="lancet-emit" style="background-image:url('plates/circe-number-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/circe-number-blur.jpg')">
-          <img class="plate plate-number" src="plates/circe-number-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-hel" data-plate="hel" tabindex="0" role="button" aria-label="Hel, numbered and finished">
+        <img class="pane pane-number" src="plates/hel-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Hel</h2>
+          <p class="epithet">half living, half already gone</p>
+        </header>
+        <img class="pane pane-color" src="plates/hel-card.jpg" alt="" width="560" height="725" loading="lazy">
       </article>
-      <article class="lancet lancet-color" data-plate="circe" data-kind="color" tabindex="0" role="button" aria-label="circe finished">
-        <div class="lancet-emit" style="background-image:url('plates/circe-blur.jpg')"></div>
-        <div class="lancet-glass" style="background-image:url('plates/circe-blur.jpg')">
-          <img class="plate plate-color" src="plates/circe-card.jpg" alt="" width="600" height="750" loading="lazy">
-        </div>
-        <svg class="lancet-cames" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path class="came-outer" d="M100 8 C100 8 188 98 188 178 L188 328 L12 328 L12 178 C12 98 100 8 100 8 Z"/>
-          <path class="came-inner" d="M100 28 C100 28 172 108 172 182 L172 312 L28 312 L28 182 C28 108 100 28 100 28 Z"/>
-          <path class="came-lead" d="M12 178 L188 178"/>
-          <path class="came-lead" d="M100 8 L100 328"/>
-          <circle cx="100" cy="8" r="5"/><circle cx="12" cy="178" r="4"/><circle cx="188" cy="178" r="4"/>
-          <circle cx="12" cy="328" r="4"/><circle cx="188" cy="328" r="4"/><circle cx="100" cy="178" r="5"/>
-        </svg>
-        <svg class="lancet-gold" viewBox="0 0 200 340" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M100 14 C100 14 182 102 182 180 L182 322 L18 322 L18 180 C18 102 100 14 100 14 Z"/>
-        </svg>
+      <article class="pair" id="plate-yggdrasil" data-plate="yggdrasil" tabindex="0" role="button" aria-label="Yggdrasil, numbered and finished">
+        <img class="pane pane-number" src="plates/yggdrasil-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Yggdrasil</h2>
+          <p class="epithet">nine worlds in the wood</p>
+        </header>
+        <img class="pane pane-color" src="plates/yggdrasil-card.jpg" alt="" width="560" height="725" loading="lazy">
       </article>
-      <header class="lancet-caption">
-        <h2 class="name">Circe</h2>
-        <p class="epithet">the bronze bowl, and the year they stayed</p>
-      </header>
-    </section>
-
-    <div class="pier" aria-hidden="true"></div>
-
-    <section id="how" class="bay masonry">
-      <p class="how-kicker">Sixteen named colours</p>
-      <div class="triptych">
-        <figure class="leaf">
-          <img src="plates/persephone-number-card.jpg" alt="Persephone, numbered" width="400" height="500" loading="lazy" style="background-image:url('plates/persephone-number-blur.jpg');background-size:cover">
-        </figure>
-        <div class="chips" aria-label="Sixteen named colours">
-          <div class="chip"><div class="swatch" style="--c:#E8B48E"></div><span>Peach</span></div>
-          <div class="chip"><div class="swatch" style="--c:#0B1A3A"></div><span>Midnight</span></div>
-          <div class="chip"><div class="swatch" style="--c:#1A6A6A"></div><span>Teal</span></div>
-          <div class="chip"><div class="swatch" style="--c:#C9A227"></div><span>Gold</span></div>
-          <div class="chip"><div class="swatch" style="--c:#802618"></div><span>Burgundy</span></div>
-          <div class="chip"><div class="swatch" style="--c:#12141A"></div><span>Ink</span></div>
-          <div class="chip"><div class="swatch" style="--c:#D4A017"></div><span>Honey</span></div>
-          <div class="chip"><div class="swatch" style="--c:#8C6239"></div><span>Bronze</span></div>
-          <div class="chip"><div class="swatch" style="--c:#5C6B3A"></div><span>Olive</span></div>
-          <div class="chip"><div class="swatch" style="--c:#4A3224"></div><span>Bark</span></div>
-          <div class="chip"><div class="swatch" style="--c:#B87333"></div><span>Copper</span></div>
-          <div class="chip"><div class="swatch" style="--c:#4A0E18"></div><span>Oxblood</span></div>
-          <div class="chip"><div class="swatch" style="--c:#C41E3A"></div><span>Scarlet</span></div>
-          <div class="chip"><div class="swatch" style="--c:#3C2414"></div><span>Espresso</span></div>
-          <div class="chip"><div class="swatch" style="--c:#C9B48A"></div><span>Sand</span></div>
-          <div class="chip"><div class="swatch" style="--c:#72283F"></div><span>Wine</span></div>
-        </div>
-        <figure class="leaf">
-          <img src="plates/persephone-color-card.jpg" alt="Persephone, finished" width="400" height="500" loading="lazy" style="background-image:url('plates/persephone-color-blur.jpg');background-size:cover">
-        </figure>
-      </div>
-    </section>
-
-    <section id="leave">
-      <div class="end-line" aria-hidden="true"></div>
-      <p class="valediction">Forty windows. The rest live in the book.</p>
-      <p class="author">Pedro Ferreira</p>
-    </section>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-valkyrie" data-plate="valkyrie" tabindex="0" role="button" aria-label="Valkyrie, numbered and finished">
+        <img class="pane pane-number" src="plates/valkyrie-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Valkyrie</h2>
+          <p class="epithet">she names who rides north</p>
+        </header>
+        <img class="pane pane-color" src="plates/valkyrie-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+      <article class="pair" id="plate-odin" data-plate="odin" tabindex="0" role="button" aria-label="Odin, numbered and finished">
+        <img class="pane pane-number" src="plates/odin-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Odin</h2>
+          <p class="epithet">the empty socket, the two ravens</p>
+        </header>
+        <img class="pane pane-color" src="plates/odin-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-huginn" data-plate="huginn" tabindex="0" role="button" aria-label="Huginn, numbered and finished">
+        <img class="pane pane-number" src="plates/huginn-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Huginn</h2>
+          <p class="epithet">thought, and the other circling</p>
+        </header>
+        <img class="pane pane-color" src="plates/huginn-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+      <article class="pair" id="plate-sleipnir" data-plate="sleipnir" tabindex="0" role="button" aria-label="Sleipnir, numbered and finished">
+        <img class="pane pane-number" src="plates/sleipnir-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Sleipnir</h2>
+          <p class="epithet">eight legs across the sky</p>
+        </header>
+        <img class="pane pane-color" src="plates/sleipnir-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-baba-yaga" data-plate="baba-yaga" tabindex="0" role="button" aria-label="Baba Yaga, numbered and finished">
+        <img class="pane pane-number" src="plates/baba-yaga-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Baba Yaga</h2>
+          <p class="epithet">the house stands on chicken legs</p>
+        </header>
+        <img class="pane pane-color" src="plates/baba-yaga-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+      <article class="pair" id="plate-cernunnos" data-plate="cernunnos" tabindex="0" role="button" aria-label="Cernunnos, numbered and finished">
+        <img class="pane pane-number" src="plates/cernunnos-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Cernunnos</h2>
+          <p class="epithet">antlers, torc, and the grove</p>
+        </header>
+        <img class="pane pane-color" src="plates/cernunnos-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-firebird" data-plate="firebird" tabindex="0" role="button" aria-label="Firebird, numbered and finished">
+        <img class="pane pane-number" src="plates/firebird-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Firebird</h2>
+          <p class="epithet">the apple tree at midnight</p>
+        </header>
+        <img class="pane pane-color" src="plates/firebird-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+      <article class="pair" id="plate-leshy" data-plate="leshy" tabindex="0" role="button" aria-label="Leshy, numbered and finished">
+        <img class="pane pane-number" src="plates/leshy-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Leshy</h2>
+          <p class="epithet">the wood that walks</p>
+        </header>
+        <img class="pane pane-color" src="plates/leshy-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-phoenix" data-plate="phoenix" tabindex="0" role="button" aria-label="Phoenix, numbered and finished">
+        <img class="pane pane-number" src="plates/phoenix-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Phoenix</h2>
+          <p class="epithet">five hundred years, then fire</p>
+        </header>
+        <img class="pane pane-color" src="plates/phoenix-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+      <article class="pair" id="plate-griffin" data-plate="griffin" tabindex="0" role="button" aria-label="Griffin, numbered and finished">
+        <img class="pane pane-number" src="plates/griffin-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Griffin</h2>
+          <p class="epithet">one claw on the hoard</p>
+        </header>
+        <img class="pane pane-color" src="plates/griffin-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-dragon" data-plate="dragon" tabindex="0" role="button" aria-label="Dragon, numbered and finished">
+        <img class="pane pane-number" src="plates/dragon-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Dragon</h2>
+          <p class="epithet">the cairn, and the broken lance</p>
+        </header>
+        <img class="pane pane-color" src="plates/dragon-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+      <article class="pair" id="plate-basilisk" data-plate="basilisk" tabindex="0" role="button" aria-label="Basilisk, numbered and finished">
+        <img class="pane pane-number" src="plates/basilisk-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Basilisk</h2>
+          <p class="epithet">the glance that empties a cloister</p>
+        </header>
+        <img class="pane pane-color" src="plates/basilisk-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-manticore" data-plate="manticore" tabindex="0" role="button" aria-label="Manticore, numbered and finished">
+        <img class="pane pane-number" src="plates/manticore-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Manticore</h2>
+          <p class="epithet">a human mouth on a lion</p>
+        </header>
+        <img class="pane pane-color" src="plates/manticore-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+      <article class="pair" id="plate-unicorn" data-plate="unicorn" tabindex="0" role="button" aria-label="Unicorn, numbered and finished">
+        <img class="pane pane-number" src="plates/unicorn-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Unicorn</h2>
+          <p class="epithet">the glade, and the spiral</p>
+        </header>
+        <img class="pane pane-color" src="plates/unicorn-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-kitsune" data-plate="kitsune" tabindex="0" role="button" aria-label="Kitsune, numbered and finished">
+        <img class="pane pane-number" src="plates/kitsune-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Kitsune</h2>
+          <p class="epithet">nine tails in the courtyard</p>
+        </header>
+        <img class="pane pane-color" src="plates/kitsune-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+      <article class="pair" id="plate-dryad" data-plate="dryad" tabindex="0" role="button" aria-label="Dryad, numbered and finished">
+        <img class="pane pane-number" src="plates/dryad-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Dryad</h2>
+          <p class="epithet">bark becoming skin</p>
+        </header>
+        <img class="pane pane-color" src="plates/dryad-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-satyr" data-plate="satyr" tabindex="0" role="button" aria-label="Satyr, numbered and finished">
+        <img class="pane pane-number" src="plates/satyr-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Satyr</h2>
+          <p class="epithet">goat legs in the vines</p>
+        </header>
+        <img class="pane pane-color" src="plates/satyr-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+      <article class="pair" id="plate-pegasus" data-plate="pegasus" tabindex="0" role="button" aria-label="Pegasus, numbered and finished">
+        <img class="pane pane-number" src="plates/pegasus-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Pegasus</h2>
+          <p class="epithet">the spring under the hooves</p>
+        </header>
+        <img class="pane pane-color" src="plates/pegasus-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-centaur" data-plate="centaur" tabindex="0" role="button" aria-label="Centaur, numbered and finished">
+        <img class="pane pane-number" src="plates/centaur-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Centaur</h2>
+          <p class="epithet">the bow drawn at a gallop</p>
+        </header>
+        <img class="pane pane-color" src="plates/centaur-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+      <article class="pair" id="plate-harpy" data-plate="harpy" tabindex="0" role="button" aria-label="Harpy, numbered and finished">
+        <img class="pane pane-number" src="plates/harpy-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Harpy</h2>
+          <p class="epithet">the storm, and the wrecked table</p>
+        </header>
+        <img class="pane pane-color" src="plates/harpy-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-kraken" data-plate="kraken" tabindex="0" role="button" aria-label="Kraken, numbered and finished">
+        <img class="pane pane-number" src="plates/kraken-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Kraken</h2>
+          <p class="epithet">the mast in the tentacle</p>
+        </header>
+        <img class="pane pane-color" src="plates/kraken-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+      <article class="pair" id="plate-leviathan" data-plate="leviathan" tabindex="0" role="button" aria-label="Leviathan, numbered and finished">
+        <img class="pane pane-number" src="plates/leviathan-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Leviathan</h2>
+          <p class="epithet">coils like hills</p>
+        </header>
+        <img class="pane pane-color" src="plates/leviathan-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+    </div>
+    <div class="row">
+      <article class="pair" id="plate-banshee" data-plate="banshee" tabindex="0" role="button" aria-label="Banshee, numbered and finished">
+        <img class="pane pane-number" src="plates/banshee-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Banshee</h2>
+          <p class="epithet">the keep, and the comb</p>
+        </header>
+        <img class="pane pane-color" src="plates/banshee-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+      <article class="pair" id="plate-anubis" data-plate="anubis" tabindex="0" role="button" aria-label="Anubis, numbered and finished">
+        <img class="pane pane-number" src="plates/anubis-number-card.jpg" alt="" width="560" height="725" loading="lazy" >
+        <header class="label">
+          <h2 class="name">Anubis</h2>
+          <p class="epithet">the heart, and the feather</p>
+        </header>
+        <img class="pane pane-color" src="plates/anubis-card.jpg" alt="" width="560" height="725" loading="lazy">
+      </article>
+    </div>
   </main>
 
-  <div id="chapel" role="dialog" aria-modal="true" aria-labelledby="chapelName" data-lenis-prevent hidden>
-    <button type="button" class="chapel-return" id="chapelReturn" aria-label="Return to the nave">
+  <footer id="leave">
+    <div class="end-line" aria-hidden="true"></div>
+    <p class="valediction">The rest of the year lives in the book.</p>
+    <p class="author">Pedro Ferreira</p>
+  </footer>
+
+  <div id="chapel" role="dialog" aria-modal="true" aria-labelledby="chapelName" hidden>
+    <button type="button" class="chapel-return" id="chapelReturn" aria-label="Return">
       <span class="hair" aria-hidden="true"></span>
-      <span>return to the nave</span>
+      <span>return</span>
     </button>
     <div class="chapel-stage">
       <div class="chapel-glass">
         <div class="emit" id="chapelEmit"></div>
-        <div class="frame" aria-hidden="true"></div>
         <div class="hero" id="chapelHero"></div>
       </div>
       <div class="chapel-missal">
@@ -477,14 +455,8 @@
   </div>
 
   <script src="vendor/gsap.min.js"></script>
-  <script src="vendor/ScrollTrigger.min.js"></script>
-  <script src="vendor/lenis.min.js"></script>
-  <script src="js/sun.js?v=3"></script>
-  <script src="js/caustics.js?v=3"></script>
-  <script src="js/glass.js?v=3"></script>
-  <script src="js/threshold.js?v=3"></script>
-  <script src="js/nave.js?v=3"></script>
-  <script src="js/chapel.js?v=3"></script>
-  <script src="js/main.js?v=3"></script>
+  <script src="js/chapel.js?v=4"></script>
+  <script src="js/nave.js?v=4"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>

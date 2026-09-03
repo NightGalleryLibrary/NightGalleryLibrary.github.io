@@ -1,75 +1,8 @@
 (function (global) {
   "use strict";
-
-  var ORDER = ["persephone", "medusa", "fenrir", "baba-yaga", "phoenix", "valkyrie", "hecate", "circe"];
+  var ORDER = ["medusa", "hecate", "persephone", "circe", "minotaur", "cerberus", "hydra", "sirens", "chimera", "sphinx", "cyclops", "nemean-lion", "fenrir", "jormungandr", "hel", "yggdrasil", "valkyrie", "odin", "huginn", "sleipnir", "baba-yaga", "cernunnos", "firebird", "leshy", "phoenix", "griffin", "dragon", "basilisk", "manticore", "unicorn", "kitsune", "dryad", "satyr", "pegasus", "centaur", "harpy", "kraken", "leviathan", "banshee", "anubis"];
+  var COPY = {"medusa": {"name": "Medusa", "epithet": "with somewhere to be", "hero": "plates/medusa-hero.jpg", "blur": "plates/medusa-blur.jpg", "p1": "On the citadel of Athens, Poseidon lay with Medusa in Athena's precinct. The goddess, her temple profaned, set living stone-gray snakes in her hair and made her face a thing that turns men to stone. Stheno and Euryale, the deathless sisters, she left untouched. Perseus came out of Seriphos, struck off the head; from the neck Pegasus and Chrysaor sprang, and the head was fixed upon the aegis.", "p2": "The marble of her face has cracked. Living snakes coil stone-gray about the brow. Those she looked upon remain as stone, the head still bound to the aegis."}, "hecate": {"name": "Hecate", "epithet": "three faces at the joining", "hero": "plates/hecate-hero.jpg", "blur": "plates/hecate-blur.jpg", "p1": "From her cave above the meadows of Enna, the daughter of Perses heard Kore cry as the earth opened beneath her. She issued forth with twin torches and walked the upper roads at Demeter's side. Helios, questioned in the end, named Hades as the taker. Thereafter the keys came to her and she kept station where three paths join.", "p2": "Moonlight lies cold on the three stone paths. Bound at the hips, three faces regard the three roads. Twin torches hold fire, keys rest against the robe, and the black dog does not rise."}, "persephone": {"name": "Persephone", "epithet": "six seeds, and the year divides", "hero": "plates/persephone-hero.jpg", "blur": "plates/persephone-blur.jpg", "p1": "The ground at Enna opens and Hades drives his chariot into the daylight. Persephone bends toward the narcissus Gaia raised as a snare; he takes her and the meadow stands empty. Demeter withholds every seed from the furrows until Zeus sends Hermes to the house of the dead. There she has already eaten of the pomegranate, and its six seeds hold her below for a season.", "p2": "The year still turns on her ascent and her descent. Wheat follows her into the light; the roots draw her down when the fruit is eaten. Both realms keep their claim."}, "circe": {"name": "Circe", "epithet": "the bronze bowl, and the year they stayed", "hero": "plates/circe-hero.jpg", "blur": "plates/circe-blur.jpg", "p1": "Upon the shore of Aeaea the black ship of Odysseus makes landfall. Circe daughter of Helios leads his men within and stirs her drug through the bronze bowl. Once they have drunk, hair covers their limbs and they join the swine that root at her feet. Human minds remain, and each remembers the man he was.", "p2": "The island holds her still above the bronze bowl she does not cease to stir. Swine that were men press near and watch her with unchanged eyes. Behind, the loom stands strung and herbs dry in the smoke of the hall."}, "minotaur": {"name": "Minotaur", "epithet": "the heart of the maze", "hero": "plates/minotaur-hero.jpg", "blur": "plates/minotaur-blur.jpg", "p1": "Minos shut Pasiphae's child by Poseidon's bull inside the Labyrinth Daedalus contrived at Knossos. Athens, for the death of Androgeus, sent seven youths and seven maidens every ninth year. Theseus, son of Aegeus, took their place and carried Ariadne's thread into the dark. He slew the beast at the centre and drew the thread home.", "p2": "The passages at Knossos stand empty. Tribute no longer puts out from Piraeus. Ariadne's thread was wound back, and nothing horned remains at the heart."}, "cerberus": {"name": "Cerberus", "epithet": "three throats at the gate", "hero": "plates/cerberus-hero.jpg", "blur": "plates/cerberus-blur.jpg", "p1": "Once Persephone sat beside Hades, the hound was stationed at the river-gate. No shade might recross the Styx. Heracles came from Tiryns under the charge of Eurystheus and was to bring the living beast into daylight. He closed his hands on the three necks and the bronze collar, using no weapon, as Hades required.", "p2": "The bronze remains about his necks at the dark gate. Three heads watch the approach; the serpentine tail, thick and scaled, rests on the stone. The Styx slides under the iron portcullis."}, "hydra": {"name": "Hydra", "epithet": "cut one, two more", "hero": "plates/hydra-hero.jpg", "blur": "plates/hydra-blur.jpg", "p1": "At Lerna the marsh holds its water through drought and rain. Eurystheus sent Heracles to slay the Hydra, brood of Typhon, that haunted the place. Each head struck away grew two in its room, until Iolaus came from the bank with fire and closed the necks. The immortal head Heracles hid under a great stone by the spring of Amymone.", "p2": "The necks lift from the swamp in a dense coil, fanged and restless, one head among them that death does not touch. A club lies in the reeds. Water stands about the buried stone."}, "sirens": {"name": "Sirens", "epithet": "the cliff, and the wreck", "hero": "plates/sirens-hero.jpg", "blur": "plates/sirens-blur.jpg", "p1": "Circe of Aeaea tells Odysseus of the meadow heaped with rotting bones and the two voices no ship can pass. Odysseus of Ithaca seals his rowers' ears with wax and has himself lashed to the mast before the island appears. The Sirens sing of Troy's last night and all that men would learn; against the ropes he twists as the oars force the hull onward. The song trails after them and fails.", "p2": "Bird bodies and human faces occupy the cliff still, lyres held in clawed hands. Under the drop the wrecked ship rests, and sailors in the waves cover their ears though already taken by the sea."}, "chimera": {"name": "Chimera", "epithet": "lion, goat, and the fire", "hero": "plates/chimera-hero.jpg", "blur": "plates/chimera-blur.jpg", "p1": "Iobates of Lycia opens the tablets Proetus sealed at Tiryns and charges the guest with a labour meant to kill him. Bellerophon takes Pegasus at Peirene and crosses the hills that face the Lycian sea. The Chimera springs from the ground in one bound, fire already streaming from the lion. Spear and flame meet above the scrub and the triple form is thrown back.", "p2": "The goat still lifts from the back, horns set against the lion's mane. The serpent tail has not reached the earth. Fire holds in the open jaws above the Lycian hillside."}, "sphinx": {"name": "Sphinx", "epithet": "the riddle under her paws", "hero": "plates/sphinx-hero.jpg", "blur": "plates/sphinx-blur.jpg", "p1": "Oedipus comes from Corinth by the high road toward the walls of Thebes. The Sphinx occupies the rock that commands the pass and puts her question to every traveler. Four feet in the morning, two at noon, three toward evening: what creature is that? He answers man and she casts herself down upon the stones.", "p2": "There she crouches still on the desert pedestal, woman's face, lion body, eagle wings folded. The carved riddle lies under her paws."}, "cyclops": {"name": "Cyclops", "epithet": "one eye, a whole flock", "hero": "plates/cyclops-hero.jpg", "blur": "plates/cyclops-blur.jpg", "p1": "Odysseus and twelve men wait in the cave on the Sicilian coast until Polyphemus returns with his flocks and bars the door with a stone. The Cyclops kindles a fire, discovers the strangers, and after brief words snatches two and dines on them where they fell. Wine from the house of Maron at Ismarus is offered in a bowl; he drinks deep and grows talkative. He asks the captain's name and is answered Nobody, to whom he grants the courtesy of being eaten last.", "p2": "Polyphemus remains in the Sicilian cave, the huge central eye open in his forehead. Sheep cluster at his feet as they did when the stone first rolled shut, the shepherd's staff in the crook of his arm and the boulder in his right hand."}, "nemean-lion": {"name": "Nemean Lion", "epithet": "hide that will not take a blade", "hero": "plates/nemean-lion-hero.jpg", "blur": "plates/nemean-lion-blur.jpg", "p1": "Eurystheus, who held the throne at Tiryns, sent Heracles to Nemea for the lion's skin. The creature occupied a rocky height in the Argolid and its hide turned every blade. Arrows left no mark and the bow was flung aside. The bronze club cracked against the golden coat and lay in pieces at its paws.", "p2": "Nothing forged has marked the beast. Club and bow remain where they fell on the Argolid stones. The roar goes out over the valley still."}, "fenrir": {"name": "Fenrir", "epithet": "a god's hand still in his mouth", "hero": "plates/fenrir-hero.jpg", "blur": "plates/fenrir-blur.jpg", "p1": "When Leyding and Dromi had broken, the Aesir took Fenrir to Lyngvi. Gleipnir they offered him, the dwarves' fine spinning. He would wear it only if Tyr set his right hand in his mouth. The jaws that closed on that hand will open for Odin at Ragnarok.", "p2": "Tyr has gone without his right hand ever since. On Lyngvi the wolf is held by Gleipnir alone. That hold ends when he swallows Odin."}, "jormungandr": {"name": "Jörmungandr", "epithet": "the sea that bites its tail", "hero": "plates/jormungandr-hero.jpg", "blur": "plates/jormungandr-blur.jpg", "p1": "Thor came to Hymir and took the head of the giant's best ox to bait his hook. They rowed beyond Midgard, farther than Hymir wished to go. The line tautened, the boat slewed stern-first, and a wall of scale rose out of the storm; Thor stood, drove both feet through the keel, and hauled until the head came up. Hymir slashed the line rather than let Jormungandr come aboard.", "p2": "Coiled about the outer sea, it holds its own tail in its jaws. Thor's boat is a shadow between the ridges of the hide. Rain strikes wood and scale alike."}, "hel": {"name": "Hel", "epithet": "half living, half already gone", "hero": "plates/hel-hero.jpg", "blur": "plates/hel-blur.jpg", "p1": "The Aesir seize from Angrboda the three children born to her and Loki. Odin flings their daughter into Niflheim and appoints her ruler of all who perish by sickness or by age. Hermod rides Sleipnir through nine nights of darkness to Eljudnir, where Baldr already sits among the dead. Hel will send him back only if every creature in the nine worlds weeps him free.", "p2": "One half remains living flesh, the other a corpse's livid ruin, on the high throne of Eljudnir. Black stalks stand throughout the court and fruit nothing. The hound at the threshold, black as pitch, watches without sleep."}, "yggdrasil": {"name": "Yggdrasil", "epithet": "nine worlds in the wood", "hero": "plates/yggdrasil-hero.jpg", "blur": "plates/yggdrasil-blur.jpg", "p1": "Odin hung nine nights from Yggdrasil, pierced by his spear and given to himself. Neither bread nor horn came until he seized the runes. He took them screaming, the cry running from the eagle's nest to Nidhogg. Ratatoskr bore the word the length of the trunk while the nine worlds waited unmoving in bough and root.", "p2": "The eagle has not left the crown. Nidhogg still works the root that drinks Hvergelmir. Ratatoskr's track remains cut in the wood that holds the worlds."}, "valkyrie": {"name": "Valkyrie", "epithet": "she names who rides north", "hero": "plates/valkyrie-hero.jpg", "blur": "plates/valkyrie-blur.jpg", "p1": "When battle is joined on Midgard, Odin looses his maidens from Valhalla. She comes down through the storm on a winged horse, spear advanced and winged helm firm. She names the dead who shall sit with the Einherjar at the high benches. Those she does not choose lie where steel put them.", "p2": "The pinions cut the last cloud. Blood still darkens the grass about a man already left behind. The aurora stands in the north after her passing."}, "odin": {"name": "Odin", "epithet": "the empty socket, the two ravens", "hero": "plates/odin-hero.jpg", "blur": "plates/odin-blur.jpg", "p1": "He comes to Mimir's well under Yggdrasil and gives one eye for a draught of the water that knows all things. Nine nights he hangs on the world-tree, pierced by Gungnir, himself given to himself, and screaming he takes up the runes. From Hlidskjalf he sees through Asgard, Midgard, and the halls below. Huginn and Muninn go out at first light and return with word of every world.", "p2": "The well has not given back the eye. Huginn and Muninn still keep their hours; Geri and Freki still take the meat he will not eat. Under the wide hat the living eye does not close."}, "huginn": {"name": "Huginn", "epithet": "thought, and the other circling", "hero": "plates/huginn-hero.jpg", "blur": "plates/huginn-blur.jpg", "p1": "Odin looses Huginn and Muninn from Asgard at sunrise, and they cover the earth until evening. The god waits upon Hlidskjalf for their return. Huginn flies as Thought, Muninn as Memory, and he has named his fear that Thought may stay away, though Memory's loss would cut deeper. At dusk they come back to his shoulders and speak.", "p2": "The gold eye turns amid feathers that hold almost no light. Runes stand in the air as if just left there. Already Muninn grows smaller and goes on."}, "sleipnir": {"name": "Sleipnir", "epithet": "eight legs across the sky", "hero": "plates/sleipnir-hero.jpg", "blur": "plates/sleipnir-blur.jpg", "p1": "A mason out of Jotunheim offered to raise the wall of Asgard before summer, and named as his price Freyja, the sun, and the moon. Svadilfari his stallion dragged stone upon stone until the work was nearly whole and the gods took fright. Loki put on a mare's shape and led the stallion into the deep forest, so summer found the wall unfinished and Thor shattered the giant. From those trees Loki came leading a grey foal with eight legs and set him at Odin's feet.", "p2": "Odin has him for the long roads. Air and sea and the descent into Hel lie under the eight hooves as turf would lie. None is swifter."}, "baba-yaga": {"name": "Baba Yaga", "epithet": "the house stands on chicken legs", "hero": "plates/baba-yaga-hero.jpg", "blur": "plates/baba-yaga-blur.jpg", "p1": "In the birch wood the hut upon chicken legs turns from the trees and opens on the path. Baba Yaga mounts her mortar and urges it with the pestle, her iron teeth catching the air. Vasilisa has carried off the burning skull and fled to the village. The witch wheels once over the fence of skulls and is lost among the trunks.", "p2": "Nothing hangs now between the white stems. The skulls of the fence keep their fire, each socket a lamp that does not die. The hut has turned from the path once more."}, "cernunnos": {"name": "Cernunnos", "epithet": "antlers, torc, and the grove", "hero": "plates/cernunnos-hero.jpg", "blur": "plates/cernunnos-blur.jpg", "p1": "In the oak wood sacred to the Carnutes at the heart of Gaul, Cernunnos sits cross-legged among the roots. Antlers branch from his head and the deer step from the trees to stand about him. He offers the torc in his right hand, its curve still that of a throat, and steadies the ram-horned serpent with his left. No hunter of the Sequani or the Aedui will enter that wood so long as both remain in his hands.", "p2": "The silver of the Gundestrup cauldron still bears the crossed knees, the offered torc and the ram-horned serpent. Boatmen at Lutetia carved his name on the pillar they set up, though time has taken the antlers."}, "firebird": {"name": "Firebird", "epithet": "the apple tree at midnight", "hero": "plates/firebird-hero.jpg", "blur": "plates/firebird-blur.jpg", "p1": "The Firebird comes each night out of the midnight forest and alights upon the golden-apple tree in Tsar Vyslav's garden. Ivan Tsarevich, given the last watch, sees the boughs kindle. He stays his hand. The bird pecks and the fruit shine as if drawn from a forge.", "p2": "Long flame-feathers still brush the grass where it has fed. The apples hold their glow and give no smoke. Onion-dome towers stand distant in the dark with gold yet cold."}, "leshy": {"name": "Leshy", "epithet": "the wood that walks", "hero": "plates/leshy-hero.jpg", "blur": "plates/leshy-blur.jpg", "p1": "North of the Sukhona River the hunter Nikita wounded a bear under the Leshy's protection. At dusk the spirit issued from a split pine, bark-skinned, antlers of living branch already in leaf, a stoat and two owls in the moss of his beard. The trees about them changed their order. Nikita set down his rifle and walked out backward, never looking behind.", "p2": "Among the oldest trunks he holds the height of the trees, the animals unalarmed in his beard. The green-black of the forest floor after rain fills his eyes. The pine wood shifts on, path and glade trading places without sound."}, "phoenix": {"name": "Phoenix", "epithet": "five hundred years, then fire", "hero": "plates/phoenix-hero.jpg", "blur": "plates/phoenix-blur.jpg", "p1": "The priests of Ra keep the years at Heliopolis. Once in five centuries the phoenix comes out of Arabia, heavy with cassia, and makes its nest upon the sun-altar. Flame takes the old bird whole. Another stands already in the nest, gold at the breast and scarlet in the wing.", "p2": "Ash remains, pale as closed eggs among the twigs. Five hundred years of quiet return to the temple. The priests sweep the altar and take up the count."}, "griffin": {"name": "Griffin", "epithet": "one claw on the hoard", "hero": "plates/griffin-hero.jpg", "blur": "plates/griffin-blur.jpg", "p1": "Far past the Issedones the one-eyed Arimaspi drive their horses at the Riphaean gold. A griffin falls from the high air and plants one claw on the chest. The eagle head dips; the wings strike the alpine wind a last time. The ridge is empty of riders.", "p2": "The beak stays shut. Lion haunches pin the stone and the gold does not stir. Snow clings to the farther peaks while the bird's eye looks past the hoard into weather."}, "dragon": {"name": "Dragon", "epithet": "the cairn, and the broken lance", "hero": "plates/dragon-hero.jpg", "blur": "plates/dragon-blur.jpg", "p1": "Hreidmar lies slain in his hall over Andvari's gold. Fafnir has taken the hoard north to Gnitaheath and coiled there in dragon shape. A rider comes from the south and sets his lance at the heart. The shaft breaks on the first coil and he settles deeper, the smoke rising.", "p2": "One coil rests heavy on the cairn, the bat-wings lifted so that light may pass. Smoke leaves the nostrils in two unwavering lines. The broken lance lies among the lowest rings and has taken the colour of the earth."}, "basilisk": {"name": "Basilisk", "epithet": "the glance that empties a cloister", "hero": "plates/basilisk-hero.jpg", "blur": "plates/basilisk-blur.jpg", "p1": "A toad broods a cock's egg beneath the Libyan sun; from it comes the basilisk, no longer than twelve fingers, marked with a white diadem. Pliny of Rome names Cyrene as its country, a place whose stones split at its breath and whose plants wither at its look. Men put weasels down into its burrows, and the two perish together, the weasel by venom, the basilisk by the weasel's stench. The ground lies barren for a long time after.", "p2": "The flags of empty cloisters stay cracked, the vines dead on the arches. A weasel is put to such waste, and both bodies come up from the hole. Men remember the crown and little else."}, "manticore": {"name": "Manticore", "epithet": "a human mouth on a lion", "hero": "plates/manticore-hero.jpg", "blur": "plates/manticore-blur.jpg", "p1": "Ctesias at Susa set down the hunters' report to Artaxerxes of the martichora. It had come west from the Indian marches and haunted the waste beyond Persepolis. A troop sent by the satrap of Persis lost four men among the older arches of a deserted palace. The survivor spoke of a human face and a tail that struck like a scorpion.", "p2": "Men still name it martichora, the man-eater. Its mouth holds three ranks of teeth, its tail the scorpion's sting. The deserted palace beyond Persepolis keeps the four it took."}, "unicorn": {"name": "Unicorn", "epithet": "the glade, and the spiral", "hero": "plates/unicorn-hero.jpg", "blur": "plates/unicorn-blur.jpg", "p1": "Along the Hydaspes the huntsmen of King Porus spent their spears in vain against the monoceros. They seated a maiden by the fountain in the walled garden and fell back among the trees. The beast came out of the moonlit glade, white, the horn a close-wound spiral, and drew near of its own accord. She did not rise.", "p2": "Maiden, wall, and running fountain are the only snare that holds it. Afterward the horn is cut from the living brow. The spiral sweats when poison is near."}, "kitsune": {"name": "Kitsune", "epithet": "nine tails in the courtyard", "hero": "plates/kitsune-hero.jpg", "blur": "plates/kitsune-blur.jpg", "p1": "Kuzunoha leaves the house of her husband Abe no Yasuna in the capital. At dusk she enters the courtyard of the Inari shrine at Shinoda, nine tails restored about her. Foxfire orbs rise from the gravel and hang between the red torii and the offering hall. The ninth tail thins and curls until it holds the silhouette of the woman who bore their son.", "p2": "The fox stands with all her weight on the raked stones, the woman's outline still caught in that last tail as if the change were unfinished. Gold eyes fix on the empty approach, neither invitation nor farewell. The orbs burn without smoke."}, "dryad": {"name": "Dryad", "epithet": "bark becoming skin", "hero": "plates/dryad-hero.jpg", "blur": "plates/dryad-blur.jpg", "p1": "Dusk gathers on the eastern slopes of Pelion. From a cleft that opened at morning in the great oak, the dryad comes, bark still clinging to her form. Cheiron's young charges, who fetch water from the grove, stand motionless with their pitchers. Leaves of oak cover her head and will not be parted; her skin is the colour of wood laid bare.", "p2": "A ligature of living root still binds her at the ankle. Two deer and a fox rest upon the moss and do not start. The oak does not let her go."}, "satyr": {"name": "Satyr", "epithet": "goat legs in the vines", "hero": "plates/satyr-hero.jpg", "blur": "plates/satyr-blur.jpg", "p1": "When the bull gores Ampelos on the high pastures of Nysa, Dionysus kneels and gathers him. Blood soaks the earth, and a vine climbs from the stain before nightfall. The satyrs crush the new grapes in their palms and drink. Then they dance, the pipes already at their mouths.", "p2": "The vine has not left Nysa. After vintage a shallow cup stands in the furrow and pipes sound among the stakes. The maenads remain in the trees, their faces pale in the leaf-shadow."}, "pegasus": {"name": "Pegasus", "epithet": "the spring under the hooves", "hero": "plates/pegasus-hero.jpg", "blur": "plates/pegasus-blur.jpg", "p1": "Perseus left Medusa's corpse on the Libyan waste; her blood struck the ground and the winged horse rose from it at once. He flew north to Helicon, mountain of the Muses in Boeotia. A blow of the hoof opened Hippocrene there. Bellerophon found him years later at the spring of Peirene in Corinth.", "p2": "Hippocrene issues from the rock on Helicon. The horse stands in the heavens with light in his mane. What began with Medusa's blood ended among the stars."}, "centaur": {"name": "Centaur", "epithet": "the bow drawn at a gallop", "hero": "plates/centaur-hero.jpg", "blur": "plates/centaur-blur.jpg", "p1": "Pholus broaches the wine of Dionysus in his cave when Heracles comes, and the scent brings the ungoverned centaurs down the ridges of Pholoe. Heracles meets the rush with arrows steeped in the Hydra's blood. One of them strikes Chiron, who has drawn apart among the pines. The son of Cronus, feeling the venom he cannot die of, surrenders his immortality so that Prometheus may go free, and Zeus raises him as archer into the southern heavens.", "p2": "The southern heavens hold him as he stood among the pines, the human half bent upon the bow, the horse half arrested in stride. That outline is the map which remains, beyond the wood and the venom."}, "harpy": {"name": "Harpy", "epithet": "the storm, and the wrecked table", "hero": "plates/harpy-hero.jpg", "blur": "plates/harpy-blur.jpg", "p1": "At Salmydessus King Phineus waits on the Thracian shore while his men lay bread and wine. For speaking the gods' designs too freely, Zeus has taken his eyes. From the storm cliff a harpy drops, woman-faced, with vulture wings and talons spread. She rakes the feast away and fouls what she leaves.", "p2": "The table lies overturned among the wet stones. Hunger and her stench remain with the blind king. Nothing else of the meal is fit to touch."}, "kraken": {"name": "Kraken", "epithet": "the mast in the tentacle", "hero": "plates/kraken-hero.jpg", "blur": "plates/kraken-blur.jpg", "p1": "Among the skerries of Vesteralen the water grows still. Hallvard of Nidaros holds the steering oar of a longship bound for the Hebrides. The kraken rises under the hull and its arms wrap the mast from truck to partners. A beak works the strakes in the dark water.", "p2": "No man aboard speaks. The northern lights lie in long bands on the waves and the glistening arms. The longship lists in the hold of what has come up."}, "leviathan": {"name": "Leviathan", "epithet": "coils like hills", "hero": "plates/leviathan-hero.jpg", "blur": "plates/leviathan-blur.jpg", "p1": "The Lord speaks to Job of Uz out of the whirlwind and will not be answered by man. He brings Leviathan before him, hide that turns the spear, breath that kindles coals. Smoke goes up from the nostrils as from a seething pot; the mighty are afraid. Job falls silent and the deep keeps its king.", "p2": "Coils lift from the water like low hills, scales shut fast as a seal. Steam hangs above the nostrils. A city on the shore lies no larger than scattered stones against the body."}, "banshee": {"name": "Banshee", "epithet": "the keep, and the comb", "hero": "plates/banshee-hero.jpg", "blur": "plates/banshee-blur.jpg", "p1": "From Carrigcleena, Clíodhna comes down when death has already chosen its room in the keep. The bean sidhe of Ireland and Scotland answer more houses than one name can hold, and she keens for the old blood while the household still sleeps. Her cry rises against the stones. The comb is already in her hand.", "p2": "The household wakes to a cry already spent against the stones. A death belongs to that blood now, whether or not the body has grown cold, and the comb is no gift for a living hand. Ireland and Scotland still know the bean sidhe by more names than Clíodhna."}, "anubis": {"name": "Anubis", "epithet": "the heart, and the feather", "hero": "plates/anubis-hero.jpg", "blur": "plates/anubis-blur.jpg", "p1": "Set slays Osiris and strews the limbs across Egypt. Isis gathers the fragments. Anubis embalms the god at Abydos and first wraps the dead in linen. In the Hall of Two Truths he weighs every heart against the feather of Maat while Thoth stands ready with his reed.", "p2": "The jackal head, black and still, regards the pans of judgment. A heart and a white feather hang balanced above four sealed canopic jars. Gold lotus borders close the tomb around the scales."}};
   var EASE = function (t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); };
-
-  var COPY = {
-    persephone: {
-      name: "Persephone",
-      epithet: "six seeds, and the year divides",
-      hero: "plates/persephone-color-hero.jpg",
-      blur: "plates/persephone-color-blur.jpg",
-      p1: "The earth split at Enna. Kore stooped to a narcissus of a hundred heads, and Aidoneus took her by the waist into the dark. Six seeds of the pomegranate he pressed upon her. Hermes led her back into the light, but those seeds held a third of the year, and the furrows learned to wait.",
-      p2: "Each appointed season she takes the fruit and descends. Wheat withers. Demeter's grief returns until the soil lies barren. She rises then with the blooming narcissus, meadows opening as grain follows her. Always she is leaving one house as she arrives in the other. The year turns on that passage."
-    },
-    medusa: {
-      name: "Medusa",
-      epithet: "with somewhere to be",
-      hero: "plates/medusa-hero.jpg",
-      blur: "plates/medusa-blur.jpg",
-      p1: "Poseidon lay with her in Athena's precinct. The goddess turned her anger on the mortal, not the god. Snakes the colour of old stone coiled in her hair, and she fled the cities of men until she came to the western rocks. Perseus came out of Seriphos with a bronze shield, and would not meet her eyes.",
-      p2: "The marble still holds the last beauty that brought a god to the temple. From the wound sprang Pegasus. Athena took the dripping head and fixed it on her aegis. The soldier below is already stone, his hand raised as if the glance caught him turning from the columns."
-    },
-    fenrir: {
-      name: "Fenrir",
-      epithet: "a god's hand still in his mouth",
-      hero: "plates/fenrir-hero.jpg",
-      blur: "plates/fenrir-blur.jpg",
-      p1: "Leyding snapped. Dromi tore. The Aesir ferried him to Lyngvi and offered Gleipnir, a ribbon the dwarves had spun from six impossibilities. He consented only when Tyr laid his right hand in the open jaws as surety. The slender fetter held. Those jaws closed on the hand that had been pledged.",
-      p2: "Bound still, he strains through the long years. The northern pines have drawn closer about the island, their shadows always crossing the open mouth. At Ragnarok the ribbon fails, and the wolf swallows Odin."
-    },
-    "baba-yaga": {
-      name: "Baba Yaga",
-      epithet: "the house stands on chicken legs",
-      hero: "plates/baba-yaga-hero.jpg",
-      blur: "plates/baba-yaga-blur.jpg",
-      p1: "The hut stands on chicken legs and turns to face the path. Skulls burn in the fence. She arrives in a mortar, steering with a pestle, sweeping her traces with a broom. Iron teeth. She scents Russian blood and shuts the girl inside, then sets tasks no mortal could finish by dawn.",
-      p2: "Vasilisa's doll did the work unseen. The witch tore a burning skull from the fence and thrust it at the girl so fire might return with her. The sockets turned on those who had sent her, and the three burned to ash."
-    },
-    phoenix: {
-      name: "Phoenix",
-      epithet: "five hundred years, then fire",
-      hero: "plates/phoenix-hero.jpg",
-      blur: "plates/phoenix-blur.jpg",
-      p1: "Out of Arabia, when five hundred years have passed, it comes heavy with cassia and myrrh and heaps its nest upon the sun-altar at Heliopolis. It lies down among the spices. The disk of the sun climbs. The flame takes the old bird whole, and cinnamon fills the court.",
-      p2: "From the ring of fire another bird stands already, gold at the breast, scarlet in the wing. It circles once, takes up what bone remains, and turns for Arabia with the parent sealed in myrrh. The priests begin their five hundred years again."
-    },
-    valkyrie: {
-      name: "Valkyrie",
-      epithet: "she names who rides north",
-      hero: "plates/valkyrie-hero.jpg",
-      blur: "plates/valkyrie-blur.jpg",
-      p1: "When the armies lock and the first men fall, Odin looses his maidens. She comes down through hail on a winged horse, spear leveled, the wings of her helm catching what light remains. She hangs above the slaughter and names those who shall sit with the Einherjar.",
-      p2: "The chosen are lifted from the bloodied grass and borne north to the benches. Those she does not choose she leaves where the steel put them. After she has spoken she climbs the storm again. The northern lights stand in long pale sheets, as though the night had been torn open."
-    },
-    hecate: {
-      name: "Hecate",
-      epithet: "three faces at the joining",
-      hero: "plates/hecate-hero.jpg",
-      blur: "plates/hecate-blur.jpg",
-      p1: "From her cave among the hills above Enna she heard Kore cry out. She came forth with twin torches and walked nine days at Demeter's side until Helios named the taker. The keys of the two realms were placed in her hands. She took station where three paths join.",
-      p2: "Night after night she keeps the post. Three faces, each turned to a road. Twin torches showing the choice. The black dog at her feet turns its ears to the dark that gathers at the divide. Whoever reaches the joining after sunset feels her regard before choosing."
-    },
-    circe: {
-      name: "Circe",
-      epithet: "the bronze bowl, and the year they stayed",
-      hero: "plates/circe-hero.jpg",
-      blur: "plates/circe-blur.jpg",
-      p1: "The last black ship grounded on Aeaea. She sat in her hall among tame wolves and welcomed the men, stirring Pramnian wine with cheese, honey, and barley in her bronze bowl. They drank, and hair covered their limbs. Hermes met Odysseus on the path and gave him the white flower moly.",
-      p2: "Once the companions stood upright they remained a year in that hall. The loom unfinished at her back. Herbs drying in the smoke. Wolves asleep in the court. When they begged for Ithaca she walked him down to the black ship and told him he must sail Oceanus first."
-    }
-  };
 
   function Chapel(opts) {
     this.reduced = !!opts.reduced;
@@ -89,41 +22,31 @@
     var self = this;
     var ret = document.getElementById("chapelReturn");
     if (ret) ret.addEventListener("click", function () { self.close(); });
-
     var sx = 0, sy = 0, tracking = false;
     this.el.addEventListener("pointerdown", function (e) {
       if (e.target.closest && e.target.closest(".chapel-return")) return;
-      tracking = true;
-      sx = e.clientX;
-      sy = e.clientY;
+      tracking = true; sx = e.clientX; sy = e.clientY;
     });
     this.el.addEventListener("pointerup", function (e) {
       if (!tracking) return;
       tracking = false;
-      var dx = e.clientX - sx;
-      var dy = e.clientY - sy;
-      if (dy > 80 && Math.abs(dy) > Math.abs(dx)) {
-        self.close();
-        return;
-      }
+      var dx = e.clientX - sx, dy = e.clientY - sy;
+      if (dy > 80 && Math.abs(dy) > Math.abs(dx)) { self.close(); return; }
       if (Math.abs(dx) > 56 && Math.abs(dx) > Math.abs(dy)) {
-        if (dx < 0) self.next();
-        else self.prev();
+        if (dx < 0) self.next(); else self.prev();
       }
     });
     this.el.addEventListener("pointercancel", function () { tracking = false; });
-
     window.addEventListener("keydown", function (e) {
       if (!self.open) return;
       if (e.key === "Escape") self.close();
       if (e.key === "ArrowRight") self.next();
       if (e.key === "ArrowLeft") self.prev();
-      if (e.key === "ArrowDown") self.close();
     });
   };
 
   Chapel.prototype._source = function (id) {
-    return document.querySelector('.lancet[data-plate="' + id + '"]');
+    return document.querySelector('.pair[data-plate="' + id + '"] .pane-color');
   };
 
   Chapel.prototype.show = function (id) {
@@ -135,91 +58,54 @@
     this.el.hidden = false;
     this.el.classList.add("is-open");
     this.el.removeAttribute("hidden");
+    document.body.classList.add("is-chapel");
     this._render(false);
     this.onChange(ORDER[this.index]);
     this._morphIn();
   };
 
   Chapel.prototype._morphIn = function () {
-    var gsap = global.gsap;
-    var glass = this.glass;
-    var missal = this.missal;
-    var src = this._fromEl;
+    var gsap = global.gsap, glass = this.glass, missal = this.missal, src = this._fromEl;
     if (!glass) return;
-
     if (this.reduced || !gsap || !src) {
-      if (glass) {
-        glass.style.transform = "";
-        glass.style.opacity = "1";
-      }
+      glass.style.transform = ""; glass.style.opacity = "1";
       if (missal) missal.style.opacity = "1";
       return;
     }
-
     var self = this;
     requestAnimationFrame(function () {
       var s = src.getBoundingClientRect();
       var d = glass.getBoundingClientRect();
       if (!d.width || !s.width) return;
-      var dx = s.left - d.left;
-      var dy = s.top - d.top;
-      var sx = s.width / d.width;
-      var sy = s.height / d.height;
-      gsap.set(glass, { transformOrigin: "0% 0%", x: dx, y: dy, scaleX: sx, scaleY: sy, opacity: 1 });
-      if (missal) gsap.set(missal, { opacity: 0, y: 18 });
-      gsap.set(self.el, { backgroundColor: "rgba(5,7,12,0)" });
-      gsap.to(glass, { x: 0, y: 0, scaleX: 1, scaleY: 1, duration: 0.95, ease: EASE, overwrite: true });
-      if (missal) gsap.to(missal, { opacity: 1, y: 0, duration: 0.7, delay: 0.28, ease: EASE });
-      gsap.to(self.el, { backgroundColor: "rgba(5,7,12,1)", duration: 0.7, ease: EASE });
+      gsap.set(glass, { transformOrigin: "0% 0%", x: s.left - d.left, y: s.top - d.top, scaleX: s.width / d.width, scaleY: s.height / d.height, opacity: 1 });
+      if (missal) gsap.set(missal, { opacity: 0, y: 14 });
+      gsap.to(glass, { x: 0, y: 0, scaleX: 1, scaleY: 1, duration: 0.7, ease: EASE, overwrite: true });
+      if (missal) gsap.to(missal, { opacity: 1, y: 0, duration: 0.5, delay: 0.18, ease: EASE });
     });
   };
 
   Chapel.prototype.close = function () {
     if (!this.open || this._busy) return;
-    var self = this;
-    var gsap = global.gsap;
-    var glass = this.glass;
+    var self = this, gsap = global.gsap, glass = this.glass;
     var src = this._fromEl || this._source(ORDER[this.index]);
-
     function finish() {
       self.open = false;
       self.el.classList.remove("is-open");
       self.el.hidden = true;
       self.el.setAttribute("hidden", "");
-      if (glass) {
-        glass.style.transform = "";
-        glass.style.opacity = "";
-      }
+      document.body.classList.remove("is-chapel");
+      if (glass) { glass.style.transform = ""; glass.style.opacity = ""; }
       self.onClose();
     }
-
-    if (this.reduced || !gsap || !src || !glass) {
-      finish();
-      return;
-    }
-
+    if (this.reduced || !gsap || !src || !glass) { finish(); return; }
     this._busy = true;
-    var s = src.getBoundingClientRect();
-    var d = glass.getBoundingClientRect();
-    var dx = s.left - d.left;
-    var dy = s.top - d.top;
-    var sx = s.width / Math.max(1, d.width);
-    var sy = s.height / Math.max(1, d.height);
-
-    if (this.missal) gsap.to(this.missal, { opacity: 0, y: 10, duration: 0.28, ease: EASE });
-    gsap.to(this.el, { backgroundColor: "rgba(5,7,12,0)", duration: 0.55, ease: EASE });
+    var s = src.getBoundingClientRect(), d = glass.getBoundingClientRect();
+    if (this.missal) gsap.to(this.missal, { opacity: 0, y: 8, duration: 0.22, ease: EASE });
     gsap.to(glass, {
-      x: dx,
-      y: dy,
-      scaleX: sx,
-      scaleY: sy,
-      duration: 0.7,
-      ease: EASE,
-      overwrite: true,
-      onComplete: function () {
-        self._busy = false;
-        finish();
-      }
+      x: s.left - d.left, y: s.top - d.top,
+      scaleX: s.width / Math.max(1, d.width), scaleY: s.height / Math.max(1, d.height),
+      duration: 0.5, ease: EASE, overwrite: true,
+      onComplete: function () { self._busy = false; finish(); }
     });
   };
 
@@ -229,7 +115,6 @@
     this._render(true, 1);
     this.onChange(ORDER[this.index]);
   };
-
   Chapel.prototype.prev = function () {
     this.index = (this.index - 1 + ORDER.length) % ORDER.length;
     this._fromEl = this._source(ORDER[this.index]);
@@ -238,8 +123,7 @@
   };
 
   Chapel.prototype._render = function (swipe, dir) {
-    var id = ORDER[this.index];
-    var c = COPY[id];
+    var id = ORDER[this.index], c = COPY[id];
     document.getElementById("chapelName").textContent = c.name;
     document.getElementById("chapelEpithet").textContent = c.epithet;
     document.getElementById("chapelP1").textContent = c.p1;
@@ -249,18 +133,13 @@
     hero.style.backgroundImage = "url('" + c.blur + "')";
     hero.innerHTML = "";
     var img = document.createElement("img");
-    img.src = c.hero;
-    img.alt = c.name;
+    img.src = c.hero; img.alt = c.name;
     hero.appendChild(img);
     emit.style.backgroundImage = "url('" + c.blur + "')";
-
     var gsap = global.gsap;
     if (swipe && gsap && !this.reduced && this.glass) {
-      var dx = (dir || 1) * 36;
-      gsap.fromTo(this.glass, { x: dx, opacity: 0.55 }, { x: 0, opacity: 1, duration: 0.55, ease: EASE, overwrite: true });
-      if (this.missal) {
-        gsap.fromTo(this.missal, { opacity: 0.2, y: 8 }, { opacity: 1, y: 0, duration: 0.5, ease: EASE });
-      }
+      gsap.fromTo(this.glass, { x: (dir || 1) * 28, opacity: 0.6 }, { x: 0, opacity: 1, duration: 0.4, ease: EASE, overwrite: true });
+      if (this.missal) gsap.fromTo(this.missal, { opacity: 0.25, y: 6 }, { opacity: 1, y: 0, duration: 0.4, ease: EASE });
     }
   };
 
