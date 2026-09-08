@@ -401,7 +401,7 @@
     gl.enableVertexAttribArray(1);
     gl.vertexAttribPointer(1, 2, gl.FLOAT, false, 16, 8);
 
-    var warp = this.reduced ? 0 : 1;
+    var warp = this.reduced ? 0 : 0.45;
     for (var i = 0; i < this.windows.length; i++) {
       var win = this.windows[i];
       if (!win.ready || !win.visible || !win.texA) continue;
